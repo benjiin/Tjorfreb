@@ -31,7 +31,7 @@ public class Regestrierung extends HttpServlet
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		
+		//test
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
