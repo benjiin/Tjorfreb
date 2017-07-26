@@ -17,6 +17,7 @@ public class Database_Test extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
+	//kommentar
     public Database_Test() {
         super();
         // TODO Auto-generated constructor stub
