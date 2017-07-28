@@ -43,7 +43,7 @@ public class Database_Test extends HttpServlet {
 
 		String resourcename = "java:comp/env/jdbc/dozent";
 		DataSource ds = null;
-//g
+
 		try
 		{
 			InitialContext jndiCntx = new InitialContext();
@@ -97,10 +97,6 @@ public class Database_Test extends HttpServlet {
 				{
 				}
 		}
-
-		
-
-
 	}
 
 	/**
@@ -109,10 +105,5 @@ public class Database_Test extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-	}
-	
-
-	
+	}	
 }
-
-

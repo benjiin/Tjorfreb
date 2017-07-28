@@ -108,7 +108,7 @@ public class Registrierung extends HttpServlet
 		out.println("</tbody>");
 		out.println("</table>");
 		out.println("<br/>");
-		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Regestrieren\"> <br />");		
+		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Registrieren\"> <br />");		
 		out.println("</form>");
 		out.println("</body>");
 		out.println("</html>");
