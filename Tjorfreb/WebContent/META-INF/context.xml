@@ -4,10 +4,10 @@
               auth="Container"
               type="javax.sql.DataSource" 
               factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
-              username="root" 
-              password=""
+              username="global" 
+              password="1234"
               driverClassName="com.mysql.jdbc.Driver"
-              url="jdbc:mysql://127.0.0.1:3306/tjorfreb"
+              url="jdbc:mysql://172.16.4.40:3306/tjorfreb"
               validationQuery="select 1"
               maxActive="20"
               maxIdle="10"/>
