@@ -1,4 +1,4 @@
-package servlets;
+package de.Tjorfreb_Bremen.Benjamin;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
