@@ -66,7 +66,7 @@ public class Registrierung extends HttpServlet
 			InitialContext jndiCntx = new InitialContext();
 			ds = (DataSource) jndiCntx.lookup(resourcename);
 			conn = ds.getConnection();
-			String SQL = "SELECT * FROM artikel";
+			String SQL = "SELECT * FROM user";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(SQL);						
 		}
