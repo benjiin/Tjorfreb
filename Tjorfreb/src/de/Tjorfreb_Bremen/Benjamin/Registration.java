@@ -1,4 +1,4 @@
-package trist;
+package de.Tjorfreb_Bremen.Benjamin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -95,7 +95,7 @@ public class Registration extends HttpServlet
 		
 		
 		out.println("<img src=\"bild.png\">");
-		out.println("<form action=\"http://127.0.0.1:8080/Shop24_de/Registration\" method=\"get\">");
+		out.println("<form action=\"http://172.16.4.40:8080/Tjorfreb/de.Tjorfreb_Bremen.Benjamin.Registration/Registration\" method=\"post\">");
 		out.println("<br/>");
 		out.println("<table style=\"text-align: left; width: 100px;\" border=\"0\">");
 		out.println("<tbody>");
