@@ -2,8 +2,9 @@ package de.Tjorfreb_Bremen.Benjamin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.*;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
