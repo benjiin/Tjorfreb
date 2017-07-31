@@ -45,7 +45,7 @@ public class Registration extends HttpServlet
 			InitialContext jndiCntx = new InitialContext();
 			ds = (DataSource) jndiCntx.lookup(resourcename);
 			conn = ds.getConnection();
-			String SQL = "SELECT * FROM artikel";
+			String SQL = "SELECT * FROM user";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(SQL);						
 		}
@@ -90,34 +90,34 @@ public class Registration extends HttpServlet
 		out.println("<title>Shop24.de</title>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<h1>Willkommen Shop24.de</h1>");
-		
-		out.println("<text>Registration</text>");
+		out.println("<h1>Registration</h1>");
 		out.println("</br>");
-		out.println("</br>");
-		
-		
+		out.println("</br>");		
 		out.println("<img src=\"bild.png\">");
-		out.println("<form action=\"http://" + WhichIP.IP + ":8080/Tjorfreb/de.Tjorfreb_Bremen.Benjamin.Registration/Registratio\" method=\"post\">");
 		out.println("<br/>");
 		out.println("<table style=\"text-align: left; width: 100px;\" border=\"0\">");
 		out.println("<tbody>");
 		out.println("<tr>");
 		out.println("<td>Vorname:</td>");
-		out.println("<td><input type=\"text\" name=\"vorname\"></td>");
+		out.println("<td><input type=\"text\" placeholder=\"Ihr Vorname\" name=\"vorname\"></td>");
 		out.println("</tr>");
 		out.println("<tr>");
-		out.println("<td>Name:</td>");
-		out.println("<td><input type=\"text\" name=\"name\"></td>");
+		out.println("<td>E-Mail:</td>");
+		out.println("<td><input type=\"text\" placeholder=\"Ihre E-Mail Adresse\"  name=\"name\"></td>");
 		out.println("</tr>");
 		out.println("<tr>");
-		out.println("<td>E-Mail</td>");
-		out.println("<td><input type=\"text\" name=\"mail\"></td>");
+		out.println("<td>Passwort</td>");
+		out.println("<td><input type=\"text\" placeholder=\"******\" name=\"mail\"></td>");
+		out.println("</tr>");
+		out.println("<tr>");
+		out.println("<td>Passwort Wiederholen</td>");
+		out.println("<td><input type=\"text\" placeholder=\"******\" name=\"mail\"></td>");
 		out.println("</tr>");
 		out.println("</tbody>");
 		out.println("</table>");
 		out.println("<br/>");
-		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Send\"> <br />");		
+		out.println("<form action=\"http://" + WhichIP.IP + ":8080/Tjorfreb/de.Tjorfreb_Bremen.Benjamin.Registration/Registration\" method=\"post\">");
+		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Erstellen Sie ihr Konto\"> <br />");		
 		out.println("</form>");
 		out.println("</body>");
 		out.println("</html>");
