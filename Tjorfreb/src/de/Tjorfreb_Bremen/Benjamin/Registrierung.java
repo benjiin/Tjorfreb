@@ -46,7 +46,7 @@ public class Registrierung extends HttpServlet
 		/*
 		 * Langer HTML Text incomning
 		 */
-		out.println("");
+		out.println("Ja");
 		out.println("");
 		out.println("");
 		out.println("");
