@@ -51,7 +51,7 @@ public class Database_Test extends HttpServlet {
 
 			conn = ds.getConnection();
 
-			String SQL = "SELECT * FROM artikel";
+			String SQL = "SELECT * FROM user";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(SQL);
 
