@@ -1,5 +1,8 @@
 package de.Tjorfreb_Bremen.Benjamin;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -37,6 +40,27 @@ public class Registrierung extends HttpServlet
 		String resourcename = "java:comp/env/jdbc/dozent";
 		DataSource ds = null;
 
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		
+		/*
+		 * Langer HTML Text incomning
+		 */
+		out.println("");
+		out.println("");
+		out.println("");
+		out.println("");
+		out.println("");
+		out.println("");
+		out.println("");
+		out.println("");
+		out.println("");
+		out.println("");
+		out.println("");
+		out.println("");
+		out.println("");
+		out.println("");
+		
 		try
 		{
 			InitialContext jndiCntx = new InitialContext();
@@ -76,41 +100,5 @@ public class Registrierung extends HttpServlet
 				{
 				}
 		}
-				
-		
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">");
-		out.println("<title>Shop24.de</title>");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("<h1>Willkommen Shop24.de</h1>");
-		out.println("<img src=\"bild.png\">");
-		out.println("<form action=\"http://127.0.0.1:8080/Tjorfreb/Registrierung\" method=\"get\">");
-		out.println("<br/>");
-		out.println("<table style=\"text-align: left; width: 100px;\" border=\"0\">");
-		out.println("<tbody>");
-		out.println("<tr>");
-		out.println("<td>Vorname:</td>");
-		out.println("<td><input type=\"text\" name=\"vorname\"></td>");
-		out.println("</tr>");
-		out.println("<tr>");
-		out.println("<td>Name:</td>");
-		out.println("<td><input type=\"text\" name=\"name\"></td>");
-		out.println("</tr>");
-		out.println("<tr>");
-		out.println("<td>E-Mail</td>");
-		out.println("<td><input type=\"text\" name=\"mail\"></td>");
-		out.println("</tr>");
-		out.println("</tbody>");
-		out.println("</table>");
-		out.println("<br/>");
-		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Registrieren\"> <br />");		
-		out.println("</form>");
-		out.println("</body>");
-		out.println("</html>");
 	}
 }

@@ -55,7 +55,6 @@ public class Database_Test extends HttpServlet {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(SQL);
 
-			out.print("sds");
 			out.println("<html><head><title>Connection Pooling</title></head><body>");
 
 			while (rs.next())
