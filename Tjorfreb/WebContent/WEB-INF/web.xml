@@ -24,17 +24,4 @@
     <servlet-name>Login</servlet-name>
     <servlet-class>files.Login</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>Login</servlet-name>
-    <url-pattern>/Login</url-pattern>
-  </servlet-mapping>
-    <servlet>
-    <display-name>Registration</display-name>
-    <servlet-name>Registration</servlet-name>
-    <servlet-class>de.Tjorfreb_Bremen.Benjamin.Registration</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Registration</servlet-name>
-    <url-pattern>/Registration</url-pattern>
-  </servlet-mapping>
 </web-app>

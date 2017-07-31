@@ -9,13 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import help.WhichIP;
+
 /**
  * Servlet implementation class Anmelden
  */
 @WebServlet("/Anmelden")
 public class Anmelden extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	
+	/*
+	 * Helferlein um die IP von zuhause zur Schule immer zu wechseln 
+	 */
+	WhichIP ip = new WhichIP();
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -31,7 +38,8 @@ public class Anmelden extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		PrintWriter out = response.getWriter();
-		out.print("sd");
+		out.println("");
+		out.println("Analmeldung");
 	}
 
 	/**

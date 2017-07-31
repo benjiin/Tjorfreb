@@ -9,10 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import help.WhichIP;
+
 @WebServlet("/Startseite")
 public class Startseite extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
+	
+
 
 	public Startseite()
 	{
@@ -33,10 +37,10 @@ public class Startseite extends HttpServlet
 		out.println("<img src=\"bild.png\">");	
 		out.println("</br>");
 		out.println("</br>");
-		out.println("<form action=\"http://172.16.4.40:8080/Tjorfreb/Registration\" method=\"get\">");
+		out.println("<form action=\"http://"+ WhichIP.IP +":8080/Tjorfreb/Registration\" method=\"get\">");
 		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Registrieren\"> <br />");
 		out.println("</form>");
-		out.println("<form action=\"http://172.16.4.40:8080/Tjorfreb/Anmelden\" method=\"get\">");
+		out.println("<form action=\"http://"+ WhichIP.IP +":8080/Tjorfreb/Anmelden\" method=\"get\">");
 		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Anmelden\"> <br />");
 		out.println("</form>");
 		out.println("</body>");

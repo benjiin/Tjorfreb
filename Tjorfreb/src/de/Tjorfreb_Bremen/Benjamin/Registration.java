@@ -9,16 +9,19 @@ import java.sql.Statement;
 import javax.naming.InitialContext;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-//@WebServlet("/Registration")
+import help.WhichIP;
+
+@WebServlet("/Registration")
 public class Registration extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
-
+	
 	public Registration()
 	{
 		super();
@@ -95,7 +98,7 @@ public class Registration extends HttpServlet
 		
 		
 		out.println("<img src=\"bild.png\">");
-		out.println("<form action=\"http://172.16.4.40:8080/Tjorfreb/de.Tjorfreb_Bremen.Benjamin.Registration/Registration\" method=\"post\">");
+		out.println("<form action=\"http://" + WhichIP.IP + ":8080/Tjorfreb/de.Tjorfreb_Bremen.Benjamin.Registration/Registratio\" method=\"post\">");
 		out.println("<br/>");
 		out.println("<table style=\"text-align: left; width: 100px;\" border=\"0\">");
 		out.println("<tbody>");
