@@ -18,11 +18,7 @@ import help.WhichIP;
 public class Anmelden extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	/*
-	 * Helferlein um die IP von zuhause zur Schule immer zu wechseln 
-	 */
-	WhichIP ip = new WhichIP();
-	
+
     /**
      * @see HttpServlet#HttpServlet()
      */
