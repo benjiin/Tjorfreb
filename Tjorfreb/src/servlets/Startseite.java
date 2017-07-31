@@ -33,9 +33,9 @@ public class Startseite extends HttpServlet
 		out.println("<img src=\"bild.png\">");	
 		out.println("</br>");
 		out.println("</br>");
-		out.println("<form action=\"http://127.0.0.1:8080/Shop24_de/Registrierung\" method=\"get\">");
+		out.println("<form action=\"http://127.0.0.1:8080/Tjorfreb/Registrierung\" method=\"get\">");
 		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Registrieren\"> <br />");
-		out.println("<form action=\"http://127.0.0.1:8080/Shop24_de/Anmelden\" method=\"get\">");
+		out.println("<form action=\"http://127.0.0.1:8080/Tjorfreb/Anmelden\" method=\"get\">");
 		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Anmelden\"> <br />");
 		out.println("</form>");
 		out.println("</body>");
