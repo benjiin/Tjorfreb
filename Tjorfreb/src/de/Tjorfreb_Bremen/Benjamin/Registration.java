@@ -15,8 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-import help.WhichIP;
-
 @WebServlet("/Registration")
 public class Registration extends HttpServlet
 {
@@ -116,7 +114,8 @@ public class Registration extends HttpServlet
 		out.println("</tbody>");
 		out.println("</table>");
 		out.println("<br/>");
-		out.println("<form action=\"http://" + WhichIP.IP + ":8080/Tjorfreb/de.Tjorfreb_Bremen.Benjamin.Registration/Registration\" method=\"post\">");
+		//IP unter Localhost
+		out.println("<form action=\"http://localhost:8080/Tjorfreb/de.Tjorfreb_Bremen.Benjamin.Registration/Registration\" method=\"post\">");
 		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Erstellen Sie ihr Konto\"> <br />");		
 		out.println("</form>");
 		out.println("</body>");
