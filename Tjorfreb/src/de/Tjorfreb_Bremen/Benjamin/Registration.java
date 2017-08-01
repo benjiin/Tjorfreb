@@ -32,51 +32,7 @@ public class Registration extends HttpServlet
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		Connection conn = null;
-		Statement stmt = null;
-		ResultSet rs = null;
-		String resourcename = "java:comp/env/jdbc/dozent";
-		DataSource ds = null;
-
-		try
-		{
-			InitialContext jndiCntx = new InitialContext();
-			ds = (DataSource) jndiCntx.lookup(resourcename);
-			conn = ds.getConnection();
-			String SQL = "SELECT * FROM user";
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(SQL);						
-		}
-
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-
-		finally
-		{
-			if (rs != null)
-				try
-				{
-					rs.close();
-				} catch (Exception e)
-				{
-				}
-			if (stmt != null)
-				try
-				{
-					stmt.close();
-				} catch (Exception e)
-				{
-				}
-			if (conn != null)
-				try
-				{
-					conn.close();
-				} catch (Exception e)
-				{
-				}
-		}				
+		
 		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
@@ -94,30 +50,91 @@ public class Registration extends HttpServlet
 		out.println("<br/>");
 		out.println("<table style=\"text-align: left; width: 100px;\" border=\"0\">");
 		out.println("<tbody>");
+		out.println("<form action=\"Validate\" method=\"post\">");
+		//Vorname
 		out.println("<tr>");
 		out.println("<td>Vorname:</td>");
-		out.println("<td><input type=\"text\" placeholder=\"Ihr Vorname\" name=\"vorname\"></td>");
+		out.println("<td><input type=\"text\" placeholder=\"Ihr Vorname\" required name=\"firstName\"></td>");
 		out.println("</tr>");
+		//Nachname
+		out.println("<tr>");
+		out.println("<td>Nachname:</td>");
+		out.println("<td><input type=\"text\" placeholder=\"Ihr Nachname\" required name=\"lastName\"></td>");
+		out.println("</tr>");
+		//E-Mail
 		out.println("<tr>");
 		out.println("<td>E-Mail:</td>");
-		out.println("<td><input type=\"text\" placeholder=\"Ihre E-Mail Adresse\"  name=\"name\"></td>");
+		out.println("<td><input type=\"text\" placeholder=\"Ihre E-Mail Adresse\" required name=\"eMail\"></td>");
 		out.println("</tr>");
+		//Passwort
 		out.println("<tr>");
 		out.println("<td>Passwort</td>");
-		out.println("<td><input type=\"text\" placeholder=\"******\" name=\"mail\"></td>");
+		out.println("<td><input type=\"password\" placeholder=\"Geben Sie Ihr Passwort ein\" required name=\"password\"></td>");
 		out.println("</tr>");
 		out.println("<tr>");
+		//Passwort wiederholen
 		out.println("<td>Passwort Wiederholen</td>");
-		out.println("<td><input type=\"text\" placeholder=\"******\" name=\"mail\"></td>");
+		out.println("<td><input type=\"password\" placeholder=\"Geben Sie Ihr Passwort noch einmal ein\" required name=\"passwordCheck\"></td>");
 		out.println("</tr>");
 		out.println("</tbody>");
 		out.println("</table>");
 		out.println("<br/>");
-		//IP unter Localhost
-		out.println("<form action=\"http://localhost:8080/Tjorfreb/de.Tjorfreb_Bremen.Benjamin.Registration/Registration\" method=\"post\">");
-		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Erstellen Sie ihr Konto\"> <br />");		
+		out.println("<input type=\"submit\" method=\"post\" value=\"Erstellen Sie ihr Konto\"/>");
+		out.println(); 
 		out.println("</form>");
 		out.println("</body>");
 		out.println("</html>");
+	}
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{	
+		
+		
+		
+//		Connection conn = null;
+//		Statement stmt = null;
+//		ResultSet rs = null;
+//		String resourcename = "java:comp/env/jdbc/dozent";
+//		DataSource ds = null;
+//
+//		try
+//		{
+//			InitialContext jndiCntx = new InitialContext();
+//			ds = (DataSource) jndiCntx.lookup(resourcename);
+//			conn = ds.getConnection();
+//			String SQL = "SELECT * FROM user";
+//			stmt = conn.createStatement();
+//			rs = stmt.executeQuery(SQL);						
+//		}
+//
+//		catch (Exception e)
+//		{
+//			e.printStackTrace();
+//		}
+//
+//		finally
+//		{
+//			if (rs != null)
+//				try
+//				{
+//					rs.close();
+//				} catch (Exception e)
+//				{
+//				}
+//			if (stmt != null)
+//				try
+//				{
+//					stmt.close();
+//				} catch (Exception e)
+//				{
+//				}
+//			if (conn != null)
+//				try
+//				{
+//					conn.close();
+//				} catch (Exception e)
+//				{
+//				}
+//		}				
 	}
 }
