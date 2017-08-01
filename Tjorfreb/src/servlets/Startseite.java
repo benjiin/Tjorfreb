@@ -31,6 +31,7 @@ public class Startseite extends HttpServlet
 		out.println("<head>");
 		out.println("</head>");
 		out.println("<body>");
+		out.println("<title>Shop24.de</title>");
 		out.println("<h1>Willkommen Shop24.de</h1>");
 		out.println("<img src=\"bild.png\">");	
 		out.println("</br>");

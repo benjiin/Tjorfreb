@@ -31,9 +31,16 @@ public class Anmelden extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.println("");
 		out.println("Analmeldung");
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">");
+		out.println("<title>Shop24.de</title>");
+		out.println("</head>");
+		out.println("</html>");
 	}
 
 	/**

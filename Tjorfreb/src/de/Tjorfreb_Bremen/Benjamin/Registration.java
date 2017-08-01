@@ -76,8 +76,7 @@ public class Registration extends HttpServlet
 				} catch (Exception e)
 				{
 				}
-		}
-				
+		}				
 		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
