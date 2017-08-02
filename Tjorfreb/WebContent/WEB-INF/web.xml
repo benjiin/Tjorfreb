@@ -13,7 +13,7 @@
   <servlet>
     <display-name>Index</display-name>
     <servlet-name>Index</servlet-name>
-    <servlet-class>files.Index</servlet-class>
+    <servlet-class>trist.Index</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Index</servlet-name>
@@ -22,7 +22,7 @@
   <servlet>
     <display-name>Login</display-name>
     <servlet-name>Login</servlet-name>
-    <servlet-class>files.Login</servlet-class>
+    <servlet-class>trist.Login</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
@@ -37,6 +37,39 @@
     <servlet-name>International</servlet-name>
     <url-pattern>/International</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <display-name>AddItem</display-name>
+    <servlet-name>AddItem</servlet-name>
+    <servlet-class>trist.AddItem</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddItem</servlet-name>
+    <url-pattern>/AddItem</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <display-name>Search</display-name>
+    <servlet-name>Search</servlet-name>
+    <servlet-class>trist.Search</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Search</servlet-name>
+    <url-pattern>/Search</url-pattern>
+  </servlet-mapping>
+  
+  
+    <servlet>
+    <display-name>Searching</display-name>
+    <servlet-name>Searching</servlet-name>
+    <servlet-class>trist.Searching</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Searching</servlet-name>
+    <url-pattern>/Searching</url-pattern>
+  </servlet-mapping>
+  
+  
   <servlet>
     <display-name>CurlTry</display-name>
     <servlet-name>CurlTry</servlet-name>
