@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 public class Startseite extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
+	
+
 
 	public Startseite()
 	{
@@ -29,13 +31,17 @@ public class Startseite extends HttpServlet
 		out.println("<head>");
 		out.println("</head>");
 		out.println("<body>");
+		out.println("<title>Shop24.de</title>");
 		out.println("<h1>Willkommen Shop24.de</h1>");
 		out.println("<img src=\"bild.png\">");	
 		out.println("</br>");
 		out.println("</br>");
-		out.println("<form action=\"http://127.0.0.1:8080/Tjorfreb/Registrierung\" method=\"get\">");
+		//IP des Server eingeben unter localhsot
+		out.println("<form action=\"http://localhost:8080/Tjorfreb/Registration\" method=\"get\">");
 		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Registrieren\"> <br />");
-		out.println("<form action=\"http://127.0.0.1:8080/Tjorfreb/Anmelden\" method=\"get\">");
+		out.println("</form>");
+		//IP des Server eingeben unter localhsot
+		out.println("<form action=\"http://localhost:8080/Tjorfreb/Anmelden\" method=\"get\">");
 		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Anmelden\"> <br />");
 		out.println("</form>");
 		out.println("</body>");

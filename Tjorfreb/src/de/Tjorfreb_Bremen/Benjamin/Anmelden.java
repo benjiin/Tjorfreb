@@ -1,24 +1,26 @@
-package trist;
+package de.Tjorfreb_Bremen.Benjamin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class Anmelden
  */
-//@WebServlet("/Login")
-public class Login extends HttpServlet {
+@WebServlet("/Anmelden")
+public class Anmelden extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	
+
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public Anmelden() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,28 +29,17 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-
+		out.println("");
+		out.println("Analmeldung");
 		out.println("<html>");
 		out.println("<head>");
+		out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">");
+		out.println("<title>Shop24.de</title>");
 		out.println("</head>");
-		out.println("<body>");
-		out.println("<h1>Willkommen Shop24.de</h1>");
-		out.println("<text>Login</text>");
-		out.println("</br>");
-		out.println("</br>");
-		out.println("<img src=\"bild.png\">");	
-		out.println("</br>");
-		out.println("</br>");
-	
-		out.println("<form action=\"/Shop24/Index\" method=\"get\">");
-		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Index\"> <br />");
-		
-		out.println("<form action=\"http://127.0.0.1:8080/Shop24_de/Search\" method=\"get\">");
-		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Search\"> <br />");
-		out.println("</form>");
-		out.println("</body>");
 		out.println("</html>");
 	}
 

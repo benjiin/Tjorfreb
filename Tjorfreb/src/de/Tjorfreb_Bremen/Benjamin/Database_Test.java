@@ -2,8 +2,9 @@ package de.Tjorfreb_Bremen.Benjamin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.*;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
-
+//l
 /**
  * Servlet implementation class Database_Test
  */
@@ -55,7 +56,6 @@ public class Database_Test extends HttpServlet {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(SQL);
 
-			out.print("sds");
 			out.println("<html><head><title>Connection Pooling</title></head><body>");
 
 			while (rs.next())
