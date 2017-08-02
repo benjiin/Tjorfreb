@@ -1,0 +1,19 @@
+
+@WebServlet("/test.html")
+<!DOCTYPE html>
+     <html>
+    <head>
+    <title>SSI mit IP/Browser</title>
+
+    </head>
+    <body>
+    <P>IP-Adresse:
+    <!--#echo
+    var="REMOTE_ADDR"-->
+    </P>
+    <P>Browser:
+    <!--#echo
+    var="HTTP_USER_AGENT"-->
+    </P>
+    </body>
+    </html>
