@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
-//l
+/**
+ * @author benjaminr
+ */
 /**
  * Servlet implementation class Database_Test
  */
@@ -70,33 +72,38 @@ public class Database_Test extends HttpServlet {
 		{
 			e.printStackTrace();
 		}
-//f
 		finally
 		{
 			if (rs != null)
+			{
 				try
 				{
 					rs.close();
 				}
 				catch (Exception e)
 				{
-				}
+				}				
+			}
 			if (stmt != null)
+			{
 				try
 				{
 					stmt.close();
 				}
 				catch (Exception e)
 				{
-				}
+				}				
+			}
 			if (conn != null)
+			{
 				try
 				{
 					conn.close();
 				}
 				catch (Exception e)
 				{
-				}
+				}				
+			}
 		}
 	}
 
