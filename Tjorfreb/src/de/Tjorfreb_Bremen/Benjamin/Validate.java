@@ -5,6 +5,8 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
@@ -57,7 +59,6 @@ public class Validate extends HttpServlet {
 				bemail = false,
 				bpassword = false;
 		
-		DBConnect DBC = new DBConnect();
 				
 		
 		PrintWriter out = response.getWriter();
@@ -124,8 +125,64 @@ public class Validate extends HttpServlet {
 			}
 			else 
 			{
-				DBC.connect("SELECT * From user");
-				
+				Connection conn = null;
+				Statement stmt = null;
+				ResultSet rs = null;
+
+				response.setContentType("text/html");
+				String resourcename = "java:comp/env/jdbc/Tjorfreb";
+				DataSource ds = null;
+
+				try
+				{
+					InitialContext jndiCntx = new InitialContext();
+					ds = (DataSource) jndiCntx.lookup(resourcename);
+
+					conn = ds.getConnection();
+
+					String SQL = "INSERT INTO User (name, lastname, e_mail, password, gender, salt_value) VALUES ('"+firstname+"', '"+lastname+"', "
+							+ "'"+email+"', '"+password+"', '0', 'salz')";
+					stmt = conn.createStatement();
+					stmt.executeUpdate(SQL);
+				}
+
+				catch (Exception e)
+				{
+					e.printStackTrace();
+				}
+				finally
+				{
+					if (rs != null)
+					{
+						try
+						{
+							rs.close();
+						}
+						catch (Exception e)
+						{
+						}				
+					}
+					if (stmt != null)
+					{
+						try
+						{
+							stmt.close();
+						}
+						catch (Exception e)
+						{
+						}				
+					}
+					if (conn != null)
+					{
+						try
+						{
+							conn.close();
+						}
+						catch (Exception e)
+						{
+						}				
+					}
+				}
 				out.println("<html>");
 				out.println("<head>");
 				out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">");

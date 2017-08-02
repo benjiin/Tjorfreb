@@ -90,53 +90,6 @@ public class Registration extends HttpServlet
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{	
-		
-		
-		
-//		Connection conn = null;
-//		Statement stmt = null;
-//		ResultSet rs = null;
-//		String resourcename = "java:comp/env/jdbc/dozent";
-//		DataSource ds = null;
-//
-//		try
-//		{
-//			InitialContext jndiCntx = new InitialContext();
-//			ds = (DataSource) jndiCntx.lookup(resourcename);
-//			conn = ds.getConnection();
-//			String SQL = "SELECT * FROM user";
-//			stmt = conn.createStatement();
-//			rs = stmt.executeQuery(SQL);						
-//		}
-//
-//		catch (Exception e)
-//		{
-//			e.printStackTrace();
-//		}
-//
-//		finally
-//		{
-//			if (rs != null)
-//				try
-//				{
-//					rs.close();
-//				} catch (Exception e)
-//				{
-//				}
-//			if (stmt != null)
-//				try
-//				{
-//					stmt.close();
-//				} catch (Exception e)
-//				{
-//				}
-//			if (conn != null)
-//				try
-//				{
-//					conn.close();
-//				} catch (Exception e)
-//				{
-//				}
-//		}				
+	
 	}
 }

@@ -13,21 +13,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+
+import com.mysql.jdbc.PreparedStatement;
 /**
  * @author benjaminr
  */
 /**
  * Servlet implementation class Database_Test
  */
-@WebServlet("/Database_Test")
-public class Database_Test extends HttpServlet {
+@WebServlet("/Insert")
+public class Insert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
 	//kommentar
-    public Database_Test() {
+    public Insert() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,15 +43,9 @@ public class Database_Test extends HttpServlet {
 		Statement stmt = null;
 		ResultSet rs = null;
 
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
 
 		String resourcename = "java:comp/env/jdbc/Tjorfreb";
 		DataSource ds = null;
-		
-	
-		
-		
 
 		try
 		{
@@ -58,28 +54,19 @@ public class Database_Test extends HttpServlet {
 
 			conn = ds.getConnection();
 			
-			String SQL = "SELECT registration_date from user where name = 'Hans'";
-//			String SQL = "SELECT * from user where name = 'Hans'";
+			String SQL = "INSERT INTO User (name,lastname,e_mail,password,gender,salt_value) VALUES ('Hans', 'Wurst', 'Email', 'password', '0', 'salz')";
 			stmt = conn.createStatement();
-			rs = stmt.executeQuery(SQL);
+			stmt.executeUpdate(SQL);
 			
 			
-
-			out.println("<html><head><title>Connection Pooling</title></head><body>");
-
-			
-			
-			
-			while (rs.next())
-			{
-				out.println("Datum aus der Datenbank: " + rs.getDate(1));
-				out.println("Millisekunden: " + rs.getDate(1).getTime());
-				out.println("Timestamp: " + rs.getTimestamp("registration_date"));
-
-			}
-			
-
-			out.println("</body></html>");
+//			PreparedStatement statement = conn.prepareStatement(sql);
+//			statement.setString(1, "peter");
+//			statement.setString(2, "Gates");
+//			statement.setString(3, "bill.gates@microsoft.com");
+//			statement.setString(4, "password");
+//			statement.setString(5, "0");
+//			statement.setString(6, "salz wert");
+			 
 		}
 
 		catch (Exception e)
