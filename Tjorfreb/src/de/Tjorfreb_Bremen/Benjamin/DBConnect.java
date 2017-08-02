@@ -11,9 +11,6 @@ import javax.sql.DataSource;
  */
 public class DBConnect
 {
-	/*
-	 * Aufbau zur Datenbank
-	 */
 	Connection conn = null;
 	Statement stmt = null;
 	ResultSet rs = null;

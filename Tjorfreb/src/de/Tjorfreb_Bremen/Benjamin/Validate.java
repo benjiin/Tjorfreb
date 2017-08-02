@@ -56,6 +56,8 @@ public class Validate extends HttpServlet {
 				blastname = false,
 				bemail = false,
 				bpassword = false;
+		
+		DBConnect DBC = new DBConnect();
 				
 		
 		PrintWriter out = response.getWriter();
@@ -122,6 +124,7 @@ public class Validate extends HttpServlet {
 			}
 			else 
 			{
+				DBC.connect("SELECT * From user");
 				
 				out.println("<html>");
 				out.println("<head>");
