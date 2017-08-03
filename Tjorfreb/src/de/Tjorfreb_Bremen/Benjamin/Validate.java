@@ -126,7 +126,7 @@ public class Validate extends HttpServlet {
 			Statement stmt = null;
 			ResultSet rs = null;
 			DataSource ds = null;
-			response.setContentType("text/html");
+
 			/**
 			 * @author benjaminr
 			 * 
@@ -206,6 +206,7 @@ public class Validate extends HttpServlet {
 					}				
 				}
 			}
+			response.setContentType("text/html");
 			out.println("<html>");
 			out.println("<head>");
 			out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">");
