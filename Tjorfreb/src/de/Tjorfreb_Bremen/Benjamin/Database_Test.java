@@ -2,6 +2,8 @@ package de.Tjorfreb_Bremen.Benjamin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -47,7 +49,6 @@ public class Database_Test extends HttpServlet {
 		String resourcename = "java:comp/env/jdbc/Tjorfreb";
 		DataSource ds = null;
 		
-	
 		
 		
 
@@ -58,24 +59,33 @@ public class Database_Test extends HttpServlet {
 
 			conn = ds.getConnection();
 			
-			String SQL = "SELECT registration_date from user where name = 'Hans'";
-//			String SQL = "SELECT * from user where name = 'Hans'";
+//			String SQL = "SELECT registration_date from user where name = 'Hans'";
+			String SQL = "SELECT * from user ";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(SQL);
 			
-			
 
-			out.println("<html><head><title>Connection Pooling</title></head><body>");
 
 			
 			
+			
+
+			
+			
+
+			out.println("<html><head><title>Connection Pooling</title></head>");
+
+			
+	
+		      
 			
 			while (rs.next())
 			{
-				out.println("Datum aus der Datenbank: " + rs.getDate(1));
-				out.println("Millisekunden: " + rs.getDate(1).getTime());
-				out.println("Timestamp: " + rs.getTimestamp("registration_date"));
-
+				out.println("Name: " + rs.getString("name"));
+				out.println("|||||| salz: " + rs.getString("salt_value"));
+				out.println("|||||| password: " + rs.getString("password"));
+				out.println("|||||| Timestamp: " + rs.getTimestamp("registration_date"));
+				out.println("<br>");
 			}
 			
 
