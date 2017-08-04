@@ -42,7 +42,7 @@ public class Database_Test extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 
-		String resourcename = "java:comp/env/jdbc/dozent";
+		String resourcename = "java:comp/env/jdbc/Tjorfreb";
 		DataSource ds = null;
 
 		try

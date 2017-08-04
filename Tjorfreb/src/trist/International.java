@@ -17,105 +17,53 @@ import java.io.InputStream;
 
 import java.net.InetAddress;
 import 	java.net.Socket;
-/**
- * Servlet implementation class User_Informations
- */
-//@WebServlet("/International")
+import java.util.Locale;
+import java.util.PropertyResourceBundle;
+import java.util.ResourceBundle;
+
 public class International extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
+	
+	public International(){ super(); }
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public International()
-	{
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		
-		
-	
-
-		//getInetAddress;
-
-
-		// hallo du da
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<title>International</title>");
-		out.println("<head>");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("<h1>Ihre IP wird gescannt</h1>");
-		out.println("<img src=\"bild.png\">");
-		out.println("</br>");
-		out.println("</br>");
-		out.println("<form action=\"http://127.0.0.1:8080/Shop24_de/Startseite\" method=\"get\">");
-		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Registrieren\"> <br />");
-		out.println("</form>");
-		out.println("<text> Hier könnte ihre Ip stehen!</text>");
-
-		out.println(
-				"<P>IP-Adresse:<!--#echo var=\"REMOTE_ADDR\"--></P><P>Browser:<!--#echo var=\"HTTP_USER_AGENT\"--></P>");
-
+		// Vom Browser gesendete Informationen
+        String browserDetails  =   request.getHeader("User-Agent");
+        //Vom Client gesendete Informationen
 		String host = request.getRemoteHost();
-        String  browserDetails  =   request.getHeader("User-Agent");
-
-        String os = "";
-        String browser = "";
-        
 		InetAddress www = InetAddress.getByName(host);
-		String ipOwner = www.getHostName(); 
-	
+    	String ipOwner = www.getHostName(); 
 		String HostAdress = www.getHostAddress();
 		String HostName = www.getHostName();
+		Locale locale=request.getLocale();
+	//	locale=locale.ENGLISH;
+		ResourceBundle textBundle=PropertyResourceBundle.getBundle("translations.Translation",locale);
+		
+		// Translations
+		String multi_ipscan=textBundle.getString("ipscan");
+		String multi_ipadress=textBundle.getString("ipadress");
+		String multi_brsdet=textBundle.getString("brsdet");
 
 		
-		out.println("HostAdress :"+HostAdress);
-		out.println("</br>");
-		out.println("HostNamä :"+HostName);
-		
-
-		
-		
-		/*out.println("Browser: "+browser);
-		out.println("</br>");
-		out.println("Browser-Details :"+ browserDetails);
-		out.println("</br>");
-
-		out.println("Hosst :"+host);
-		out.println("</br>");
-		out.println("Os :"+os);
-		
-		out.println("www :"+www);
-		out.println("</br>");
-		
-		out.println("Hosst :"+www);
-		out.println("</br>");
-		
-		out.println("Hosst :"+www);
-		out.println("</br>");
-		
-		
-		
-		out.println("</body>");
-		out.println("</html>");*/
+		//HTML Ausgabe
+		out.println("<html><head><title>International</title></head>");
+		out.println("<body><h1>"+multi_ipscan+"</h1>");
+		out.println("<text>"+multi_ipadress+" :"+HostAdress+"</text></br></br>");
+		out.println("Hostname :"+HostName+"</br></br>");
+		out.println(multi_brsdet+" : "+browserDetails+"</br></br>");
+		out.println("Locale: "+locale.getDisplayLanguage()+"</br>");
+		out.println("Host: "+host);
+		out.println("</body></html>");
+		/*		
+		<form action="select.html"> <label>Künstler(in): <select name="top5" size="5">
+		<option>Heino</option> <option>Michael Jackson</option> <option>Tom Waits</option>
+		<option>Nina Hagen</option> <option>Marianne Rosenberg</option> </select> </label> </form>*/
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		doGet(request, response);

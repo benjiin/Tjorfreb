@@ -1,6 +1,7 @@
 package trist;
 
 import java.io.IOException;
+import java.util.*;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -17,60 +18,46 @@ import javax.sql.DataSource;
 
 public class Searching extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public Searching() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		PrintWriter out = response.getWriter();
-		//out.append("Suchwort:"+spattern);
-		out.append("Servedd at: ").append(request.getContextPath());
-
-		out.append(selectItemX("name","item","Mobile"));
+		out.append("Served at: ").append(request.getContextPath());
+		//selectItemX("name","item","Mobile",out);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
-		
 		String spattern=request.getParameter("spattern");
 		PrintWriter out = response.getWriter();
 		//out.append("Suchwort:"+spattern);
-		
-		out.append(selectItemX("name","item","Mobile"));
+		ArrayList<String> erg = new ArrayList<String>();
+		selectItemX("name","item",spattern,out);
 	}
 	
 	
-	public StringBuilder selectItemX(String field, String table,String spattern)
+	public ArrayList selectItemX(String field, String table,String spattern, PrintWriter out)
 	{
+		ArrayList<String> erg = new ArrayList<String>();
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
-		StringBuilder erg = new StringBuilder();
-		String resourcename = "java:comp/env/jdbc/dozent";
+		String resourcename = "java:comp/env/jdbc/Tjorfreb";
 		DataSource ds = null;
-		erg.append("Ergehhhhhhbnis :");
 		try
 		{
+			InitialContext jndiCntx = new InitialContext();
 			ds = (DataSource) jndiCntx.lookup(resourcename);
 			conn = ds.getConnection();
 			String SQL = "SELECT "+field+" FROM "+table+" where name like '%"+spattern+"%'";
-			System.out.println("gbbbbbbbbbbbbbbbbbbbbbbb");
+			System.out.println("xx"+SQL);
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(SQL);
-			while (rs.next()){ erg.append(rs.getString(1) + " " + rs.getString(2)); }
+			while (rs.next()){ 
+				System.out.println(rs.getString("name"));
+				erg.add(rs.getString("name")); }
 		}
 		catch (Exception e)	{ e.printStackTrace(); }
 		finally
@@ -86,6 +73,7 @@ public class Searching extends HttpServlet {
 				catch (Exception e)	{ }
 		}
 		return erg;
+
 	}
 
 }

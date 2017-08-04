@@ -46,8 +46,6 @@
     <servlet-name>AddItem</servlet-name>
     <url-pattern>/AddItem</url-pattern>
   </servlet-mapping>
-  
-  
   <servlet>
     <display-name>Search</display-name>
     <servlet-name>Search</servlet-name>
@@ -57,9 +55,7 @@
     <servlet-name>Search</servlet-name>
     <url-pattern>/Search</url-pattern>
   </servlet-mapping>
-  
-  
-    <servlet>
+  <servlet>
     <display-name>Searching</display-name>
     <servlet-name>Searching</servlet-name>
     <servlet-class>trist.Searching</servlet-class>
@@ -68,8 +64,6 @@
     <servlet-name>Searching</servlet-name>
     <url-pattern>/Searching</url-pattern>
   </servlet-mapping>
-  
-  
   <servlet>
     <display-name>CurlTry</display-name>
     <servlet-name>CurlTry</servlet-name>

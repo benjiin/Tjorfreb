@@ -35,10 +35,7 @@ public class Index extends HttpServlet
 		out.println("<img src=\"bild.png\">");	
 		out.println("</br>");
 		out.println("</br>");
-	/*
-		out.println("<form action=\"/Shop24_de/Registration\" method=\"get\">");
-		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Registration\"> <br />");
-		*/
+
 		out.println("<form action=\"/Shop24/Login\" method=\"get\">");
 		out.println("<input type=\"submit\" name=\"login\" value=\"Login\"> <br />");
 		out.println("</form>");
