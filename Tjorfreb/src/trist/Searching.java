@@ -26,7 +26,6 @@ public class Searching extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		out.append("Served at: ").append(request.getContextPath());
-		//selectItemX("name","item","Mobile",out);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,7 +35,6 @@ public class Searching extends HttpServlet {
 		ArrayList<String> erg = new ArrayList<String>();
 		selectItemX("name","item",spattern,out);
 	}
-	
 	
 	public ArrayList selectItemX(String field, String table,String spattern, PrintWriter out)
 	{

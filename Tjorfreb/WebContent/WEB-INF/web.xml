@@ -73,4 +73,22 @@
     <servlet-name>CurlTry</servlet-name>
     <url-pattern>/CurlTry</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <display-name>setzeCookie</display-name>
+    <servlet-name>setzeCookie</servlet-name>
+    <servlet-class>trist.setzeCookie</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>setzeCookie</servlet-name>
+    <url-pattern>/setzeCookie</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <display-name>nehmeCookie</display-name>
+    <servlet-name>nehmeCookie</servlet-name>
+    <servlet-class>trist.nehmeCookie</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>nehmeCookie</servlet-name>
+    <url-pattern>/nehmeCookie</url-pattern>
+  </servlet-mapping>
 </web-app>
