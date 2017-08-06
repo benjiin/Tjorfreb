@@ -46,5 +46,4 @@
     <servlet-name>CurlTry</servlet-name>
     <url-pattern>/CurlTry</url-pattern>
   </servlet-mapping>
-  
 </web-app>

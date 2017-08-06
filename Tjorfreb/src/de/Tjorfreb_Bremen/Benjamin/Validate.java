@@ -7,9 +7,20 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Date;
+import java.util.Properties;
 import java.util.Random;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.naming.InitialContext;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -127,6 +138,8 @@ public class Validate extends HttpServlet {
 			ResultSet rs = null;
 			DataSource ds = null;
 
+			
+
 			/**
 			 * @author benjaminr
 			 * 
@@ -206,6 +219,33 @@ public class Validate extends HttpServlet {
 					}				
 				}
 			}
+			Properties props = System.getProperties();
+			props.setProperty("mail.smtp.host", "localhost");
+			props.setProperty("mail.transport.protocol", "smtp");
+			
+			Session session = Session.getDefaultInstance(props, null);
+			MimeMessage message = new MimeMessage(session);
+			
+			try
+			{
+				
+				message.setFrom(new InternetAddress("admin@tjorfreb.de"));
+				message.addRecipients(Message.RecipientType.TO, email);
+				message.setSubject("Registrierung als User für Shop24.de");
+				message.setSentDate(new Date());
+				message.setContent(
+						"<h1>Registrierungslink</h1><br/><a href='http://www.heise.de'>Bitte hier registrieren...</a>",
+						"text/html");
+				Transport.send(message);
+			} 
+			catch (AddressException e)
+			{
+				e.printStackTrace();
+			}
+			catch (MessagingException e)
+			{
+				e.printStackTrace();
+			}
 			response.setContentType("text/html");
 			out.println("<html>");
 			out.println("<head>");
@@ -213,13 +253,12 @@ public class Validate extends HttpServlet {
 			out.println("<title>Shop24.de</title>");
 			out.println("</head>");
 			out.println("<body>");
-			out.println("<h1>Validierung</h1>");
-			out.println("Eine Mail zur Aktivierung ist nun unterwegs.");
+			out.println("<h1>Validierung</h1>");	
 			out.println("Eine Mail zur Aktivierung ist nun unterwegs.");
 			out.println("<form action=\"Startseite\">");
-			out.println("<input type=\"submit\"  value=\"Startseite\"/>");
+			out.println("<input type=\"submit\" value=\"Startseite\"/>");
 			out.println("</body>");
-			out.println("</html>");					
+			out.println("</html>");	
 		}
 	}
 
