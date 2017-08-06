@@ -28,6 +28,7 @@ public class HTMLMail extends HttpServlet
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		
 		Properties props = System.getProperties();
 		props.setProperty("mail.smtp.host", "localhost");
 		props.setProperty("mail.transport.protocol", "smtp");

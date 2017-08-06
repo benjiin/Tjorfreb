@@ -215,6 +215,7 @@ public class Validate extends HttpServlet {
 			out.println("<body>");
 			out.println("<h1>Validierung</h1>");
 			out.println("Eine Mail zur Aktivierung ist nun unterwegs.");
+			out.println("Eine Mail zur Aktivierung ist nun unterwegs.");
 			out.println("<form action=\"Startseite\">");
 			out.println("<input type=\"submit\"  value=\"Startseite\"/>");
 			out.println("</body>");
