@@ -136,6 +136,21 @@ public class Validate extends HttpServlet {
 			Statement stmt = null;
 			ResultSet rs = null;
 			DataSource ds = null;
+			try
+			{
+				InitialContext jndiCntx = new InitialContext();
+				ds = (DataSource) jndiCntx.lookup(resourcename);
+				conn = ds.getConnection();
+
+				String SQL = "SELECT `e_mail` FROM `tjorfreb`.`user` where e_mail = "+email+"";
+				stmt = conn.createStatement();
+				stmt.executeUpdate(SQL);
+			}
+
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
 			String ip = request.getRemoteAddr();
 			if (ip.equalsIgnoreCase("0:0:0:0:0:0:0:1")) {
 				InetAddress inetAddress = InetAddress.getLocalHost();
