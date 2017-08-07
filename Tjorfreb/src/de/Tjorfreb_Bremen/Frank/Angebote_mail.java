@@ -18,7 +18,7 @@ public class Angebote_mail extends HttpServlet
 {
 	
 	private String angebote;
-	private int preis;
+	private String mail;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -51,18 +51,19 @@ public class Angebote_mail extends HttpServlet
 			rs = stmt.executeQuery(SQL);
 			out.println("<html><head><title>Shop 24.de</title></head><body>");
 
-			while (rs.next())
-			{																		
-				angebote = "Wir haben für Sie dieses Angebot: </br></br>"+ rs.getString(3)+"</br></br>"+rs.getString(4)+"</br></br>"+" Angebot: "+rs.getString(5)+" Euro!"+"</br>-----------------------------------------</br></br>";				
-				out.println(angebote);	
+			while(rs.next())
+			{																																														
+				angebote = "Wir haben für Sie dieses Angebot: </br></br>"+ rs.getString(3)+"</br></br>"+rs.getString(4)+"</br></br>"+" Angebot: "+rs.getString(5)+" Euro!"+"</br>-----------------------------------------</br></br>";
 				
-				this.preis = rs.getInt(5);
-				out.println(preis);				
+				if(rs.getInt(5) <= 100)
+				{															
+					mail += angebote;
+				}																
 			}
-			
-		
-			
+				
+			out.println(mail);		
 			out.println("</body></html>");
+	
 		}
 
 		catch (Exception e)
@@ -96,14 +97,11 @@ public class Angebote_mail extends HttpServlet
 		}
 
 	}
-
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		doGet(request, response);
 	}
 
-	
-	
-		
+
 }
