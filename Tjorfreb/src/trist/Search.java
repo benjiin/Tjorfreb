@@ -10,6 +10,7 @@ import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
 import javax.naming.InitialContext;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,11 +39,12 @@ public class Search extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		//Get Cookie Informations
 		response.setContentType("text/html");
+		RequestDispatcher rd=getServletContext().getRequestDispatcher("/whosThere");
+		rd.include(request, response);
+		ResourceBundle textBundle = (ResourceBundle)request.getAttribute("textBundle");
 		PrintWriter out = response.getWriter();
-	
-		Locale locale=request.getLocale();
-		ResourceBundle textBundle=PropertyResourceBundle.getBundle("translations.Translation",locale);
 		
 		// Translations
 		String gratz=textBundle.getString("gratz");
@@ -55,8 +57,15 @@ public class Search extends HttpServlet
 		out.println("<td>"+srch+" :</td></tr>");
 		out.println("<form action=\"/Tjorfreb/Searching\" method=\"post\">");
 		out.println("<td><input type=\"text\" placeholder=\""+entrSrch+"\" required name=\"spattern\"> style=\"width:123px</td>");
-		out.println("<input type=\"submit\" name=\"submit\" value=Go!> <br />");
-		out.println("</form></body></html>");
+		out.println("<input type=\"submit\" name=\"searchBTN\" value=Go!> <br />");
+		out.println("</form>");
+		
+		
+		// Language selecter
+		String className="Search";
+		request.setAttribute("className", className);
+		RequestDispatcher rd2=getServletContext().getRequestDispatcher("/changeLang");
+		rd2.include(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

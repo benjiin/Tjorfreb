@@ -91,4 +91,22 @@
     <servlet-name>nehmeCookie</servlet-name>
     <url-pattern>/nehmeCookie</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <display-name>whosThere</display-name>
+    <servlet-name>whosThere</servlet-name>
+    <servlet-class>trist.whosThere</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>whosThere</servlet-name>
+    <url-pattern>/whosThere</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <display-name>changeLang</display-name>
+    <servlet-name>changeLang</servlet-name>
+    <servlet-class>trist.changeLang</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>changeLang</servlet-name>
+    <url-pattern>/changeLang</url-pattern>
+  </servlet-mapping>
 </web-app>
