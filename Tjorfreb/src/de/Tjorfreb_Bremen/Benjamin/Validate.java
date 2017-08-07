@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Date;
@@ -19,13 +20,12 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.naming.InitialContext;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
-
-import java.sql.Connection;
 
 
 /**
@@ -67,17 +67,24 @@ public class Validate extends HttpServlet {
 				possibleEMail = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$",
 				chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
 				salt = new String(),
-				generatedPassword = new String();
+				generatedPassword = new String(),
+				ID = "123";
 		
 		boolean invalidEmail = email.matches(possibleEMail),
 				bfirstname = false,
 				blastname = false,
 				bemail = false,
-				bpassword = false;
+				bpassword = false,
+				emailNotAvaiable = false;
 		
 		Random 	r = new Random();			
 		
 		PrintWriter out = response.getWriter();
+		
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		DataSource ds = null;
 		/**
 		 * @author benjaminr
 		 * 
@@ -94,6 +101,27 @@ public class Validate extends HttpServlet {
 			lastname = lastname.substring(0,1).toUpperCase() + lastname.substring(1).toLowerCase();	
 			blastname = true;
 		}
+		try
+		{
+			InitialContext jndiCntx = new InitialContext();
+			ds = (DataSource) jndiCntx.lookup(resourcename);
+			conn = ds.getConnection();
+
+			String SQL = "SELECT * FROM `user`";
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(SQL);
+			while (rs.next())
+			{
+				if(!rs.getString(10).equals(email))
+				{
+					emailNotAvaiable = true;
+				}
+			}			
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}	
 		if(invalidEmail == true)
 		{
 			bemail = true;
@@ -103,7 +131,7 @@ public class Validate extends HttpServlet {
 			bpassword = true;
 		}
 		
-		if(bfirstname == false || blastname == false || bemail == false || bpassword == false)
+		if(bfirstname == false || blastname == false || bemail == false || bpassword == false || emailNotAvaiable == false)
 		{
 			out.println("<html>");
 			out.println("<head>");
@@ -124,6 +152,10 @@ public class Validate extends HttpServlet {
 			{
 				out.println("Passwort muss übereinstimmen");
 			}
+			else if(emailNotAvaiable == false)
+			{
+				out.println("E-Mail schon vorhanden");
+			}
 			out.println("<form>");
 			out.println("<input type=\"button\" value=\"Zurück\" onclick=\"history.back()\"/>");
 			out.println("</form>");
@@ -132,25 +164,6 @@ public class Validate extends HttpServlet {
 		}
 		else 
 		{
-			Connection conn = null;
-			Statement stmt = null;
-			ResultSet rs = null;
-			DataSource ds = null;
-			try
-			{
-				InitialContext jndiCntx = new InitialContext();
-				ds = (DataSource) jndiCntx.lookup(resourcename);
-				conn = ds.getConnection();
-
-				String SQL = "SELECT `e_mail` FROM `tjorfreb`.`user` where e_mail = "+email+"";
-				stmt = conn.createStatement();
-				stmt.executeUpdate(SQL);
-			}
-
-			catch (Exception e)
-			{
-				e.printStackTrace();
-			}
 			String ip = request.getRemoteAddr();
 			if (ip.equalsIgnoreCase("0:0:0:0:0:0:0:1")) {
 				InetAddress inetAddress = InetAddress.getLocalHost();
@@ -193,7 +206,7 @@ public class Validate extends HttpServlet {
 				ds = (DataSource) jndiCntx.lookup(resourcename);
 				conn = ds.getConnection();
 
-				String SQL = "INSERT INTO User (name, lastname, e_mail, salt_value, password) VALUES ('"+firstname+"', '"+lastname+"', '"+email+"', '"+salt+"', '"+generatedPassword+"')";
+				String SQL = "INSERT INTO User (name, lastname, e_mail, salt_value, password, reg_key) VALUES ('"+firstname+"', '"+lastname+"', '"+email+"', '"+salt+"', '"+generatedPassword+"', '"+ID+"')";
 				stmt = conn.createStatement();
 				stmt.executeUpdate(SQL);
 			}
@@ -235,6 +248,12 @@ public class Validate extends HttpServlet {
 					}				
 				}
 			}
+
+			request.setAttribute("ID",ID);
+			RequestDispatcher rd = request.getRequestDispatcher("Emailverify");
+			rd.forward(request,response);
+			
+			
 			Properties props = System.getProperties();
 			props.setProperty("mail.smtp.host", "localhost");
 			props.setProperty("mail.transport.protocol", "smtp");
@@ -253,7 +272,7 @@ public class Validate extends HttpServlet {
 						"<h1>Registrierungslink</h1><br/>"
 						+"Ein User mit der IP:"+ip+" hat versucht über Ihre E-Mail einen Account zu erstellen. Sollte dies nicht der Fall sein ignorieren Sie diese"
 								+ " Mail. Ansonsten klicken Sie auf den unten liegenden Link<br/>"
-						+ "<a href='http://localhost:8080/Tjorfreb/Startseite'>Bitte hier registrieren...</a>",
+						+ "<a href='http://localhost:8080/Tjorfreb/Emailverify'>Bitte hier registrieren...</a>",
 						"text/html");
 				Transport.send(message);
 			} 

@@ -64,4 +64,13 @@
     <servlet-name>Validate</servlet-name>
     <url-pattern>/Validate</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <display-name>ConnectionTest</display-name>
+    <servlet-name>ConnectionTest</servlet-name>
+    <servlet-class>de.Tjorfreb_Bremen.Benjamin.ConnectionTest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConnectionTest</servlet-name>
+    <url-pattern>/ConnectionTest</url-pattern>
+  </servlet-mapping>
 </web-app>
