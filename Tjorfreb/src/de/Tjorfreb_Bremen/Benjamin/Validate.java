@@ -33,7 +33,7 @@ import com.mysql.jdbc.Statement;
 /**
  * Servlet implementation class Validate
  */
-@WebServlet("/Validate")
+//@WebServlet("/Validate")
 public class Validate extends HttpServlet {
 	private static final long serialVersionUID = 1L;       
     /**

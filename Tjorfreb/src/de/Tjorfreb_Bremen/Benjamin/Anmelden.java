@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Anmelden
  */
-@WebServlet("/Anmelden")
+//@WebServlet("/Anmelden")
 public class Anmelden extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
