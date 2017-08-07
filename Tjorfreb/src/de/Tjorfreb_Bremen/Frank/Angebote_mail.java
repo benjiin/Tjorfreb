@@ -27,7 +27,6 @@ public class Angebote_mail extends HttpServlet
 		super();
 	}
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 
@@ -52,11 +51,10 @@ public class Angebote_mail extends HttpServlet
 			out.println("<html><head><title>Shop 24.de</title></head><body>");
 
 			while(rs.next())
-			{																																														
-				angebote = "Wir haben für Sie dieses Angebot: </br></br>"+ rs.getString(3)+"</br></br>"+rs.getString(4)+"</br></br>"+" Angebot: "+rs.getString(5)+" Euro!"+"</br>-----------------------------------------</br></br>";
-				
+			{																																																	
 				if(rs.getInt(5) <= 100)
 				{															
+					angebote = "Wir haben für Sie dieses Angebot: </br></br>"+ rs.getString(3)+"</br></br>"+rs.getString(4)+"</br></br>"+" Angebot: "+rs.getString(5)+" Euro!"+"</br>-----------------------------------------</br></br>";
 					mail += angebote;
 				}																
 			}
