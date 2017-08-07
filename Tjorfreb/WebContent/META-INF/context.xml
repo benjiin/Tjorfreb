@@ -1,6 +1,6 @@
 <Context>
     <!-- Specify a JDBC datasource -->
-    <Resource name="jdbc/dozent" 
+    <Resource name="jdbc/tjorfreb" 
               auth="Container"
               type="javax.sql.DataSource" 
               factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
