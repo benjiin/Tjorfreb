@@ -2,14 +2,15 @@ package de.Tjorfreb_Bremen.Benjamin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Date;
 import java.util.Properties;
 import java.util.Random;
 
-import javax.activation.DataSource;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -19,13 +20,13 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.Statement;
+import java.sql.Connection;
+
 
 /**
  * @author benjaminr
@@ -41,7 +42,6 @@ public class Validate extends HttpServlet {
      */
     public Validate() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -136,9 +136,12 @@ public class Validate extends HttpServlet {
 			Statement stmt = null;
 			ResultSet rs = null;
 			DataSource ds = null;
-
-			
-
+			String ip = request.getRemoteAddr();
+			if (ip.equalsIgnoreCase("0:0:0:0:0:0:0:1")) {
+				InetAddress inetAddress = InetAddress.getLocalHost();
+				String ipAddress = inetAddress.getHostAddress();
+				ip = ipAddress;
+			}
 			/**
 			 * @author benjaminr
 			 * 
@@ -173,7 +176,6 @@ public class Validate extends HttpServlet {
 			{
 				InitialContext jndiCntx = new InitialContext();
 				ds = (DataSource) jndiCntx.lookup(resourcename);
-
 				conn = ds.getConnection();
 
 				String SQL = "INSERT INTO User (name, lastname, e_mail, salt_value, password) VALUES ('"+firstname+"', '"+lastname+"', '"+email+"', '"+salt+"', '"+generatedPassword+"')";
@@ -233,7 +235,10 @@ public class Validate extends HttpServlet {
 				message.setSubject("Registrierung als User für Shop24.de");
 				message.setSentDate(new Date());
 				message.setContent(
-						"<h1>Registrierungslink</h1><br/><a href='http://www.heise.de'>Bitte hier registrieren...</a>",
+						"<h1>Registrierungslink</h1><br/>"
+						+"Ein User mit der IP:"+ip+" hat versucht über Ihre E-Mail einen Account zu erstellen. Sollte dies nicht der Fall sein ignorieren Sie diese"
+								+ " Mail. Ansonsten klicken Sie auf den unten liegenden Link<br/>"
+						+ "<a href='http://localhost:8080/Tjorfreb/Startseite'>Bitte hier registrieren...</a>",
 						"text/html");
 				Transport.send(message);
 			} 
