@@ -46,4 +46,22 @@
     <servlet-name>CurlTry</servlet-name>
     <url-pattern>/CurlTry</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <display-name>Registration</display-name>
+    <servlet-name>Registration</servlet-name>
+    <servlet-class>de.Tjorfreb_Bremen.Benjamin.Registration</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Registration</servlet-name>
+    <url-pattern>/Registration</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <display-name>Validate</display-name>
+    <servlet-name>Validate</servlet-name>
+    <servlet-class>de.Tjorfreb_Bremen.Benjamin.Validate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Validate</servlet-name>
+    <url-pattern>/Validate</url-pattern>
+  </servlet-mapping>
 </web-app>

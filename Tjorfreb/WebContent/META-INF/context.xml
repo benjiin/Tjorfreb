@@ -1,6 +1,6 @@
 <Context>
     <!-- Specify a JDBC datasource -->
-    <Resource name="jdbc/tjorfreb" 
+    <Resource name="jdbc/Tjorfreb" 
               auth="Container"
               type="javax.sql.DataSource" 
               factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
@@ -11,9 +11,17 @@
               validationQuery="select 1"
               maxActive="20"
               maxIdle="10"/>
+              
 
     <!-- Specify the security realm and location of the users file
     <Realm className="org.apache.catalina.realm.MemoryRealm" 
            pathname="/tomcat/webapps/ROOT/WEB-INF/users.xml" />
+           
+           zuhause 
+           url="jdbc:mysql://192.168.2.109:3306/tjorfreb" 
+
+           schule 
+           url="jdbc:mysql://172.28.4.96:3306/tjorfreb"
     -->
+    
 </Context>

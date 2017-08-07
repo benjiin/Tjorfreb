@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.UUID;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletConfig;
@@ -14,8 +15,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
-
-@WebServlet("/Registration")
+/**
+ * @author benjaminr
+ */
+//@WebServlet("/Registration")
 public class Registration extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
@@ -88,53 +91,6 @@ public class Registration extends HttpServlet
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{	
-		
-		
-		
-//		Connection conn = null;
-//		Statement stmt = null;
-//		ResultSet rs = null;
-//		String resourcename = "java:comp/env/jdbc/dozent";
-//		DataSource ds = null;
-//
-//		try
-//		{
-//			InitialContext jndiCntx = new InitialContext();
-//			ds = (DataSource) jndiCntx.lookup(resourcename);
-//			conn = ds.getConnection();
-//			String SQL = "SELECT * FROM user";
-//			stmt = conn.createStatement();
-//			rs = stmt.executeQuery(SQL);						
-//		}
-//
-//		catch (Exception e)
-//		{
-//			e.printStackTrace();
-//		}
-//
-//		finally
-//		{
-//			if (rs != null)
-//				try
-//				{
-//					rs.close();
-//				} catch (Exception e)
-//				{
-//				}
-//			if (stmt != null)
-//				try
-//				{
-//					stmt.close();
-//				} catch (Exception e)
-//				{
-//				}
-//			if (conn != null)
-//				try
-//				{
-//					conn.close();
-//				} catch (Exception e)
-//				{
-//				}
-//		}				
+	
 	}
 }
