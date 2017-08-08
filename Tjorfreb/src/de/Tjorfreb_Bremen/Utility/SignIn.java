@@ -62,6 +62,7 @@ public class SignIn extends HttpServlet {
 		out.println("</table>");
 		out.println("<br/>");
 		out.println("<input type=\"submit\" method=\"post\" value=\"Abschicken\"/>");
+		out.println("<input type=\"button\" value=\"Zurück\" onclick=\"history.back()\"/>");
 		out.println("</form>");
 
 		// Language selecter
