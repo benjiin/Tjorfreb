@@ -34,7 +34,7 @@ public class Angebote_mail extends HttpServlet
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
-		String resourcename = "java:comp/env/jdbc/tjorfreb";
+		String resourcename = "java:comp/env/jdbc/Tjorfreb";
 		DataSource ds = null;
 		
 		response.setContentType("text/html");
