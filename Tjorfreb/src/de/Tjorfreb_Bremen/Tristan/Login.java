@@ -1,4 +1,4 @@
-package trist;
+package de.Tjorfreb_Bremen.Tristan;
 
 import java.io.IOException;
 import java.io.PrintWriter;

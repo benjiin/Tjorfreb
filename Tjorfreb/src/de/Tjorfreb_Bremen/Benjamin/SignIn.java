@@ -14,14 +14,14 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class Anmelden
  */
 //@WebServlet("/Anmelden")
-public class Anmelden extends HttpServlet {
+public class SignIn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Anmelden() {
+    public SignIn() {
         super();
         // TODO Auto-generated constructor stub
     }
