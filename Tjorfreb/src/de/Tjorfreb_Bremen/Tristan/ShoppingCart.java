@@ -1,4 +1,4 @@
-package servlets;
+package de.Tjorfreb_Bremen.Tristan;
 
 import java.io.IOException;
 
@@ -14,12 +14,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-@WebServlet("/Warenkorb")
-public class Warenkorb extends HttpServlet
+@WebServlet("/ShoppingCart")
+public class ShoppingCart extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 
-	public Warenkorb()
+	public ShoppingCart()
 	{
 		super();
 	}

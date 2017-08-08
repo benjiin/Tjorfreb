@@ -31,7 +31,7 @@
   <servlet>
     <display-name>International</display-name>
     <servlet-name>International</servlet-name>
-    <servlet-class>trist.International</servlet-class>
+    <servlet-class>de.Tjorfreb_Bremen.Tristan.International</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>International</servlet-name>
@@ -40,7 +40,7 @@
   <servlet>
     <display-name>CurlTry</display-name>
     <servlet-name>CurlTry</servlet-name>
-    <servlet-class>trist.CurlTry</servlet-class>
+    <servlet-class>de.Tjorfreb_Bremen.Tristan.CurlTry</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>CurlTry</servlet-name>
@@ -63,5 +63,41 @@
   <servlet-mapping>
     <servlet-name>Validate</servlet-name>
     <url-pattern>/Validate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <display-name>ConnectionTest</display-name>
+    <servlet-name>ConnectionTest</servlet-name>
+    <servlet-class>de.Tjorfreb_Bremen.Benjamin.ConnectionTest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConnectionTest</servlet-name>
+    <url-pattern>/ConnectionTest</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <display-name>SignIn</display-name>
+    <servlet-name>SignIn</servlet-name>
+    <servlet-class>de.Tjorfreb_Bremen.Benjamin.SignIn</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignIn</servlet-name>
+    <url-pattern>/SignIn</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <display-name>Homepage</display-name>
+    <servlet-name>Homepage</servlet-name>
+    <servlet-class>de.Tjorfreb_Bremen.Utility.Homepage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Homepage</servlet-name>
+    <url-pattern>/Homepage</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <display-name>Warenkorb</display-name>
+    <servlet-name>Warenkorb</servlet-name>
+    <servlet-class>de.Tjorfreb_Bremen.Afrooz.Warenkorb</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Warenkorb</servlet-name>
+    <url-pattern>/Warenkorb</url-pattern>
   </servlet-mapping>
 </web-app>

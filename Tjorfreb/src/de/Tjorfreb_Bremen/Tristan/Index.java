@@ -1,22 +1,19 @@
-package servlets;
+package de.Tjorfreb_Bremen.Tristan;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Startseite")
-public class Startseite extends HttpServlet
+//@WebServlet("/Index.html")
+public class Index extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
-	
 
-
-	public Startseite()
+	public Index()
 	{
 		super();
 	}
@@ -31,18 +28,25 @@ public class Startseite extends HttpServlet
 		out.println("<head>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<title>Shop24.de</title>");
 		out.println("<h1>Willkommen Shop24.de</h1>");
+		out.println("<text>Index</text>");
+		out.println("</br>");
+		out.println("</br>");
 		out.println("<img src=\"bild.png\">");	
 		out.println("</br>");
 		out.println("</br>");
-		//IP des Server eingeben unter localhsot
-		out.println("<form action=\"http://localhost:8080/Tjorfreb/Registration\" method=\"get\">");
-		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Registrieren\"> <br />");
+	/*
+		out.println("<form action=\"/Shop24_de/Registration\" method=\"get\">");
+		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Registration\"> <br />");
+		*/
+		out.println("<form action=\"/Shop24/Login\" method=\"get\">");
+		out.println("<input type=\"submit\" name=\"login\" value=\"Login\"> <br />");
 		out.println("</form>");
-		//IP des Server eingeben unter localhsot
-		out.println("<form action=\"http://localhost:8080/Tjorfreb/Anmelden\" method=\"get\">");
-		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Anmelden\"> <br />");
+		out.println("</br>");
+		out.println("</br>");
+		
+		out.println("<form action=\"/Shop24/Registration\" method=\"get\">");
+		out.println("<input type=\"submit\" name=\"registration\" value=\"Registration\"> <br />");
 		out.println("</form>");
 		out.println("</body>");
 		out.println("</html>");
