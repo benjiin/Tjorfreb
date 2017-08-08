@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.util.Date;
 import java.util.Properties;
 import java.util.Random;
+import java.util.UUID;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -66,8 +67,9 @@ public class Validate extends HttpServlet {
 				possibleEMail = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$",
 				chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
 				salt = new String(),
-				generatedPassword = new String(),
-				ID = "1234";
+				generatedPassword = new String();
+		
+		UUID ID = UUID.randomUUID();
 		
 		boolean invalidEmail = email.matches(possibleEMail),
 				bfirstname = false,
@@ -257,7 +259,7 @@ public class Validate extends HttpServlet {
 			out.println("<body>");
 			out.println("<h1>Validierung</h1>");	
 			out.println("Eine Mail zur Aktivierung ist nun unterwegs.");
-			out.println("<form action=\"Startseite\">");
+			out.println("<form action=\"Header1\">");
 			out.println("<input type=\"submit\" value=\"Startseite\"/>");
 			out.println("</body>");
 			out.println("</html>");	

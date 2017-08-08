@@ -44,6 +44,9 @@ public class Registration extends HttpServlet
 		
 		
 		// Translations
+		/**
+		 * @author benjaminr
+		 */
 		String 	name=textBundle.getString("name"),
 				entname=textBundle.getString("entname"),
 				lastname=textBundle.getString("lastname"),
@@ -56,10 +59,6 @@ public class Registration extends HttpServlet
 				entpasswordcheck=textBundle.getString("entpasswordcheck"),
 				submitbutton=textBundle.getString("submitbutton"),
 				backbutton=textBundle.getString("backbutton");
-				
-
-				
-
 		/**
 		 * @author benjaminr
 		 */

@@ -51,7 +51,7 @@ public class SignIn extends HttpServlet {
 		
 		out.println("<table style=\"text-align: left; width: 100px;\" border=\"0\">");
 		out.println("<tbody>");
-		out.println("<form action=\"Startseite\" method=\"post\">");
+		out.println("<form action=\"SignIn\" method=\"post\">");
 		//E-Mail
 		out.println("<tr>");
 		out.println("<td>"+email+":</td>");
@@ -86,6 +86,13 @@ public class SignIn extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		
+		String 	email = request.getParameter("eMail"),
+				password = request.getParameter("password"),
+				possibleEMail = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+
+		
+		
 	}
 
 }

@@ -77,7 +77,7 @@ public class Emailverify extends HttpServlet {
 		out.println("<h1>Aktiviert</h1>");	
 		out.println("Herzlichen Glückwunsch Sie sind nun registiert.");
 		out.println("<form action=\"Startseite\">");
-		out.println("<input type=\"submit\" value=\"Startseite\"/>");
+		out.println("<input type=\"submit\" value=\"Header1\"/>");
 		out.println("</body>");
 		out.println("</html>");	
 
