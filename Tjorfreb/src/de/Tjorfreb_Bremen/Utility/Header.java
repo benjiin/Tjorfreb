@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * 
  * Servlet implementation class Header
  */
-
+//@WebServlet("/Hee1")
 public class Header extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -53,9 +53,10 @@ public class Header extends HttpServlet {
 		// Start HTML Code
 		out.println("<html><body><h1>"+gratz+"</h1>");
 		out.print("<center>");
-		out.print("<a href='Header'>Startseite</a> | ");
+		out.print("<a href='Header1'>Startseite</a> | ");
 		out.print("<a href='ArtikelListe'>Artikelliste</a> |");
 		out.print("<a href='ShoppingCart'>Warenkorb</a> | ");
+		out.print("<a href='Search'>Suche</a> | ");
 		out.print("<a href='Registration'>Registrieren</a> |");
 		out.print("<a href='SignIn'>Anmelden</a> |");
 		out.println("</br>");

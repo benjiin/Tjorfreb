@@ -71,7 +71,8 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Header</servlet-name>
-    <url-pattern>/Header</url-pattern>
+    <url-pattern>/Header1</url-pattern>
+    <url-pattern>/Hee1</url-pattern>
   </servlet-mapping>
       <servlet>
     <display-name>whosThere</display-name>
@@ -90,6 +91,15 @@
   <servlet-mapping>
     <servlet-name>Search</servlet-name>
     <url-pattern>/Search</url-pattern>
+  </servlet-mapping>
+      <servlet>
+    <display-name>Searching</display-name>
+    <servlet-name>Searching</servlet-name>
+    <servlet-class>de.Tjorfreb_Bremen.Utility.Searching</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Searching</servlet-name>
+    <url-pattern>/Searching</url-pattern>
   </servlet-mapping>
       <servlet>
     <display-name>Footer</display-name>

@@ -33,7 +33,7 @@ public class Search extends HttpServlet
 	{
 		//Get Cookie Informations
 		response.setContentType("text/html");
-		RequestDispatcher rd3=getServletContext().getRequestDispatcher("/Header");
+		RequestDispatcher rd3=getServletContext().getRequestDispatcher("/Header1");
 		rd3.include(request, response);
 		ResourceBundle textBundle = (ResourceBundle)request.getAttribute("textBundle");
 		PrintWriter out = response.getWriter();
@@ -45,7 +45,7 @@ public class Search extends HttpServlet
 
 		out.println("<td>"+srch+" :</td></tr>");
 		out.println("<form action=\"/Tjorfreb/Searching\" method=\"post\">");
-		out.println("<td><input type=\"text\" placeholder=\""+entrSrch+"\" required name=\"spattern\"> style=\"width:123px</td>");
+		out.println("<td><input type=\"text\" placeholder=\""+entrSrch+"\" required name=\"spattern\"></td>");
 		out.println("<input type=\"submit\" name=\"searchBTN\" value=Go!> <br />");
 		out.println("</form>");
 		

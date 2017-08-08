@@ -29,12 +29,12 @@ public class Searching extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String spattern=request.getParameter("spattern");
 		PrintWriter out = response.getWriter();
-		ArrayList<String> erg = selectItemX("ID","User",spattern,out);
+		ArrayList<String> erg = selectItemX("name","item",spattern,out);
 	}
 	
 	protected ArrayList selectItemX(String field, String table,String spattern, PrintWriter out)
 	{
-		ArrayList<Integer> erg = new ArrayList<Integer>();
+		ArrayList<String> erg = new ArrayList<String>();
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -50,8 +50,8 @@ public class Searching extends HttpServlet {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(SQL);
 			while (rs.next()){ 
-				System.out.println(rs.getInt("ID"));
-				erg.add(rs.getInt("ID")); }
+				out.println(rs.getString("name"));
+				erg.add(rs.getString("name")); }
 		}
 		catch (Exception e)	{ e.printStackTrace(); }
 		finally

@@ -2,7 +2,9 @@ package de.Tjorfreb_Bremen.Utility;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ResourceBundle;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,19 +33,17 @@ public class SignIn extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		//Get Cookie Informations
 		response.setContentType("text/html");
+		RequestDispatcher rd3=getServletContext().getRequestDispatcher("/Header1");
+		rd3.include(request, response);
+		ResourceBundle textBundle = (ResourceBundle)request.getAttribute("textBundle");
 		PrintWriter out = response.getWriter();
-
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<title>Shop24.de</title>");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("<h1>Anmelden</h1>");
-		out.println("</br>");
-		out.println("</br>");		
-		out.println("<img src=\"bild.png\">");
-		out.println("<br/>");
+		
+		// Translations
+		String srch=textBundle.getString("srch");
+		String entrSrch=textBundle.getString("entrSrch");
+		
 		out.println("<table style=\"text-align: left; width: 100px;\" border=\"0\">");
 		out.println("<tbody>");
 		out.println("<form action=\"Startseite\" method=\"post\">");
@@ -63,8 +63,12 @@ public class SignIn extends HttpServlet {
 		out.println("<br/>");
 		out.println("<input type=\"submit\" method=\"post\" value=\"Abschicken\"/>");
 		out.println("</form>");
-		out.println("</body>");
-		out.println("</html>");
+
+		// Language selecter
+		String className="Search";
+		request.setAttribute("className", className);
+		RequestDispatcher rd2=getServletContext().getRequestDispatcher("/Footer");
+		rd2.include(request, response);
 		
 
 		
