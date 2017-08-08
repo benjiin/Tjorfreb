@@ -73,7 +73,7 @@
     <servlet-name>ConnectionTest</servlet-name>
     <url-pattern>/ConnectionTest</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <display-name>Anmelden</display-name>
     <servlet-name>Anmelden</servlet-name>
     <servlet-class>de.Tjorfreb_Bremen.Benjamin.Anmelden</servlet-class>
@@ -81,5 +81,14 @@
   <servlet-mapping>
     <servlet-name>Anmelden</servlet-name>
     <url-pattern>/Anmelden</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <display-name>Startseite</display-name>
+    <servlet-name>Startseite</servlet-name>
+    <servlet-class>de.Tjorfreb_Bremen.Startseite</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Startseite</servlet-name>
+    <url-pattern>/Startseite</url-pattern>
   </servlet-mapping>
 </web-app>
