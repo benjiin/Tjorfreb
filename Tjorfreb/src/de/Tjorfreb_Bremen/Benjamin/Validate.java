@@ -102,26 +102,33 @@ public class Validate extends HttpServlet {
 			blastname = true;
 		}
 		try
-		{
+			{
 			InitialContext jndiCntx = new InitialContext();
 			ds = (DataSource) jndiCntx.lookup(resourcename);
 			conn = ds.getConnection();
-
-			String SQL = "SELECT * FROM `user`";
+	
+			String SQL = "SELECT e_mail FROM `user`";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(SQL);
-			while (rs.next())
+			
+			while (rs.next()) 
 			{
-				if(!rs.getString(10).equals(email))
+				if(!email.equals(rs.getString(1)))
 				{
 					emailNotAvaiable = true;
+				}	
+				else
+				{
+					break;
 				}
-			}			
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}	
+			}
+			
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}	
+
 		if(invalidEmail == true)
 		{
 			bemail = true;
@@ -133,9 +140,10 @@ public class Validate extends HttpServlet {
 		
 		if(bfirstname == false || blastname == false || bemail == false || bpassword == false || emailNotAvaiable == false)
 		{
+			response.setContentType("text/html");
+
 			out.println("<html>");
 			out.println("<head>");
-			out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">");
 			out.println("<title>Shop24.de</title>");
 			out.println("</head>");
 			out.println("<body>");
@@ -164,6 +172,7 @@ public class Validate extends HttpServlet {
 		}
 		else 
 		{
+			response.setContentType("text/html");			
 			String ip = request.getRemoteAddr();
 			if (ip.equalsIgnoreCase("0:0:0:0:0:0:0:1")) {
 				InetAddress inetAddress = InetAddress.getLocalHost();
@@ -249,9 +258,18 @@ public class Validate extends HttpServlet {
 				}
 			}
 
-			request.setAttribute("ID",ID);
-			RequestDispatcher rd = request.getRequestDispatcher("Emailverify");
-			rd.forward(request,response);
+			out.println("<html>");
+			out.println("<head>");
+			out.println("<title>Shop24.de</title>");
+			out.println("</head>");
+			out.println("<body>");
+			out.println("<h1>Validierung</h1>");	
+			out.println("Eine Mail zur Aktivierung ist nun unterwegs.");
+			out.println("<form action=\"Startseite\">");
+			out.println("<input type=\"submit\" value=\"Startseite\"/>");
+			out.println("</body>");
+			out.println("</html>");	
+
 			
 			
 			Properties props = System.getProperties();
@@ -284,19 +302,7 @@ public class Validate extends HttpServlet {
 			{
 				e.printStackTrace();
 			}
-			response.setContentType("text/html");
-			out.println("<html>");
-			out.println("<head>");
-			out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">");
-			out.println("<title>Shop24.de</title>");
-			out.println("</head>");
-			out.println("<body>");
-			out.println("<h1>Validierung</h1>");	
-			out.println("Eine Mail zur Aktivierung ist nun unterwegs.");
-			out.println("<form action=\"Startseite\">");
-			out.println("<input type=\"submit\" value=\"Startseite\"/>");
-			out.println("</body>");
-			out.println("</html>");	
+
 		}
 	}
 
