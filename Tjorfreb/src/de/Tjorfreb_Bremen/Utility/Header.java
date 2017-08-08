@@ -60,7 +60,7 @@ public class Header extends HttpServlet {
 		out.println("<html><body><h1>"+gratz+"</h1>");
 		out.print("<center>");
 		out.print("<a href='Header1'>"+homepage+"</a> | ");
-		out.print("<a href='Offers'>"+offers+"</a> |");
+		out.print("<a href='Offers_mail'>"+offers+"</a> |");
 		out.print("<a href='ShoppingCart'>"+shoppingcart+"</a> | ");
 		out.print("<a href='Search'>"+search+"</a> | ");
 		out.print("<a href='Registration'>"+regisration+"</a> |");

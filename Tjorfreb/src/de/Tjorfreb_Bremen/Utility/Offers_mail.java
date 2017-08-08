@@ -1,4 +1,4 @@
-package de.Tjorfreb_Bremen.Frank;
+package de.Tjorfreb_Bremen.Utility;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 
-@WebServlet("/Angebote_mail")
-public class Angebote_mail extends HttpServlet
+//@WebServlet("/Angebote_mail")
+public class Offers_mail extends HttpServlet
 {
 	
 	private String angebote;
@@ -22,7 +22,7 @@ public class Angebote_mail extends HttpServlet
 	
 	private static final long serialVersionUID = 1L;
 
-	public Angebote_mail()
+	public Offers_mail()
 	{
 		super();
 	}

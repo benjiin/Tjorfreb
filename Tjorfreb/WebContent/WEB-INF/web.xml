@@ -110,4 +110,13 @@
     <servlet-name>Footer</servlet-name>
     <url-pattern>/Footer</url-pattern>
   </servlet-mapping>
+      <servlet>
+    <display-name>Offers_mail</display-name>
+    <servlet-name>Offers_mail</servlet-name>
+    <servlet-class>de.Tjorfreb_Bremen.Utility.Offers_mail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Offers_mail</servlet-name>
+    <url-pattern>/Offers_mail</url-pattern>
+  </servlet-mapping>
 </web-app>
