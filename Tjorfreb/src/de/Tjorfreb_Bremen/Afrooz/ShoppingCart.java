@@ -15,11 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 //@WebServlet("/Warenkorb")
-public class Warenkorb extends HttpServlet
+public class ShoppingCart extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 
-	public Warenkorb()
+	public ShoppingCart()
 	{
 		super();
 	}

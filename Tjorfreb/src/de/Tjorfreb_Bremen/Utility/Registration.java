@@ -1,8 +1,10 @@
-package de.Tjorfreb_Bremen.Benjamin;
+package de.Tjorfreb_Bremen.Utility;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ResourceBundle;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,21 +29,25 @@ public class Registration extends HttpServlet
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
-		
-		
+	{		
+		/**
+		 * @author tristan
+		 */
+		//Get Cookie Informations
 		response.setContentType("text/html");
+		System.out.println("wsdes");
+		RequestDispatcher rd3=getServletContext().getRequestDispatcher("/Header");
+		rd3.include(request, response);
+		ResourceBundle textBundle = (ResourceBundle)request.getAttribute("textBundle");
 		PrintWriter out = response.getWriter();
+		// Translations
+		String srch=textBundle.getString("srch");
+		String entrSrch=textBundle.getString("entrSrch");
 
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<title>Shop24.de</title>");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("<h1>Registration</h1>");
-		out.println("</br>");
-		out.println("</br>");		
-		out.println("<img src=\"bild.png\">");
+		/**
+		 * @author benjaminr
+		 */
+//		out.println("<head>Registrierung</head>");
 		out.println("<br/>");
 		out.println("<table style=\"text-align: left; width: 100px;\" border=\"0\">");
 		out.println("<tbody>");

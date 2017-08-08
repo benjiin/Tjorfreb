@@ -1,4 +1,4 @@
-package de.Tjorfreb_Bremen.Benjamin;
+package de.Tjorfreb_Bremen.Utility;
 
 import java.io.IOException;
 import java.io.PrintWriter;

@@ -1,4 +1,4 @@
-package de.Tjorfreb_Bremen.Tristan;
+package de.Tjorfreb_Bremen.Utility;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -51,7 +51,15 @@ public class Header extends HttpServlet {
 		String gratz=textBundle.getString("gratz");
 		
 		// Start HTML Code
-		out.println("<html><head></head><body><h1>"+gratz+"</h1>");
+		out.println("<html><body><h1>"+gratz+"</h1>");
+		out.print("<center>");
+		out.print("<a href='Header'>Startseite</a> | ");
+		out.print("<a href='ArtikelListe'>Artikelliste</a> |");
+		out.print("<a href='ShoppingCart'>Warenkorb</a> | ");
+		out.print("<a href='Registration'>Registrieren</a> |");
+		out.print("<a href='SignIn'>Anmelden</a> |");
+		out.println("</br>");
+		out.print("</center>");
 		out.println("<img src=\"bild.png\"></br></br><tr>");
 	}
 

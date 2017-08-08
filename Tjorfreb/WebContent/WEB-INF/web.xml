@@ -11,45 +11,9 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <display-name>Index</display-name>
-    <servlet-name>Index</servlet-name>
-    <servlet-class>files.Index</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Index</servlet-name>
-    <url-pattern>/Index</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <display-name>Login</display-name>
-    <servlet-name>Login</servlet-name>
-    <servlet-class>files.Login</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Login</servlet-name>
-    <url-pattern>/Login</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <display-name>International</display-name>
-    <servlet-name>International</servlet-name>
-    <servlet-class>de.Tjorfreb_Bremen.Tristan.International</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>International</servlet-name>
-    <url-pattern>/International</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <display-name>CurlTry</display-name>
-    <servlet-name>CurlTry</servlet-name>
-    <servlet-class>de.Tjorfreb_Bremen.Tristan.CurlTry</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CurlTry</servlet-name>
-    <url-pattern>/CurlTry</url-pattern>
-  </servlet-mapping>
-  <servlet>
     <display-name>Registration</display-name>
     <servlet-name>Registration</servlet-name>
-    <servlet-class>de.Tjorfreb_Bremen.Benjamin.Registration</servlet-class>
+    <servlet-class>de.Tjorfreb_Bremen.Utility.Registration</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Registration</servlet-name>
@@ -58,7 +22,7 @@
   <servlet>
     <display-name>Validate</display-name>
     <servlet-name>Validate</servlet-name>
-    <servlet-class>de.Tjorfreb_Bremen.Benjamin.Validate</servlet-class>
+    <servlet-class>de.Tjorfreb_Bremen.Utility.Validate</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Validate</servlet-name>
@@ -67,7 +31,7 @@
   <servlet>
     <display-name>ConnectionTest</display-name>
     <servlet-name>ConnectionTest</servlet-name>
-    <servlet-class>de.Tjorfreb_Bremen.Benjamin.ConnectionTest</servlet-class>
+    <servlet-class>de.Tjorfreb_Bremen.Utility.ConnectionTest</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ConnectionTest</servlet-name>
@@ -76,7 +40,7 @@
   <servlet>
     <display-name>SignIn</display-name>
     <servlet-name>SignIn</servlet-name>
-    <servlet-class>de.Tjorfreb_Bremen.Benjamin.SignIn</servlet-class>
+    <servlet-class>de.Tjorfreb_Bremen.Utility.SignIn</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>SignIn</servlet-name>
@@ -91,13 +55,49 @@
     <servlet-name>Homepage</servlet-name>
     <url-pattern>/Homepage</url-pattern>
   </servlet-mapping>
-    <servlet>
-    <display-name>Warenkorb</display-name>
-    <servlet-name>Warenkorb</servlet-name>
-    <servlet-class>de.Tjorfreb_Bremen.Afrooz.Warenkorb</servlet-class>
+      <servlet>
+    <display-name>ShoppingCart</display-name>
+    <servlet-name>ShoppingCart</servlet-name>
+    <servlet-class>de.Tjorfreb_Bremen.Afrooz.ShoppingCart</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Warenkorb</servlet-name>
-    <url-pattern>/Warenkorb</url-pattern>
+    <servlet-name>ShoppingCart</servlet-name>
+    <url-pattern>/ShoppingCart</url-pattern>
+  </servlet-mapping>
+      <servlet>
+    <display-name>Header</display-name>
+    <servlet-name>Header</servlet-name>
+    <servlet-class>de.Tjorfreb_Bremen.Utility.Header</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Header</servlet-name>
+    <url-pattern>/Header</url-pattern>
+  </servlet-mapping>
+      <servlet>
+    <display-name>whosThere</display-name>
+    <servlet-name>whosThere</servlet-name>
+    <servlet-class>de.Tjorfreb_Bremen.Utility.whosThere</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>whosThere</servlet-name>
+    <url-pattern>/whosThere</url-pattern>
+  </servlet-mapping>
+      <servlet>
+    <display-name>Search</display-name>
+    <servlet-name>Search</servlet-name>
+    <servlet-class>de.Tjorfreb_Bremen.Utility.Search</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Search</servlet-name>
+    <url-pattern>/Search</url-pattern>
+  </servlet-mapping>
+      <servlet>
+    <display-name>Footer</display-name>
+    <servlet-name>Footer</servlet-name>
+    <servlet-class>de.Tjorfreb_Bremen.Utility.Footer</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Footer</servlet-name>
+    <url-pattern>/Footer</url-pattern>
   </servlet-mapping>
 </web-app>

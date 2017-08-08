@@ -1,4 +1,4 @@
-package de.Tjorfreb_Bremen.Tristan;
+package de.Tjorfreb_Bremen.Utility;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -33,7 +33,6 @@ public class whosThere extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("doGet");
 		doPost(request, response);
 	}
 
@@ -41,7 +40,6 @@ public class whosThere extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doPost");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		request.setAttribute("textBundle", checkCookie(request,response));
@@ -50,7 +48,6 @@ public class whosThere extends HttpServlet {
 		
 	protected ResourceBundle checkCookie(HttpServletRequest request, HttpServletResponse response)
 	{
-		System.out.println("checkCookie");
 		String lang = "uknown";
 		try
 		{
