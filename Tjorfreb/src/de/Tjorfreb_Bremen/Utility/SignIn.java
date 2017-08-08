@@ -41,32 +41,37 @@ public class SignIn extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		// Translations
-		String srch=textBundle.getString("srch");
-		String entrSrch=textBundle.getString("entrSrch");
+		String 	email=textBundle.getString("email"),
+				entemail=textBundle.getString("entemail"),
+				password=textBundle.getString("password"),
+				entpassword=textBundle.getString("entpassword"),
+				loginbutton=textBundle.getString("loginbutton"),
+				backbutton=textBundle.getString("backbutton");
+
 		
 		out.println("<table style=\"text-align: left; width: 100px;\" border=\"0\">");
 		out.println("<tbody>");
 		out.println("<form action=\"Startseite\" method=\"post\">");
 		//E-Mail
 		out.println("<tr>");
-		out.println("<td>E-Mail:</td>");
-		out.println("<td><input type=\"text\" placeholder=\"Ihre E-Mail Adresse\" required name=\"eMail\"></td>");
+		out.println("<td>"+email+":</td>");
+		out.println("<td><input type=\"text\" placeholder=\""+entemail+"\" required name=\"eMail\"></td>");
 		out.println("</tr>");
 		//Passwort
 		out.println("<tr>");
-		out.println("<td>Passwort</td>");
-		out.println("<td><input type=\"password\" placeholder=\"Geben Sie Ihr Passwort ein\" required name=\"password\"></td>");
+		out.println("<td>"+password+"</td>");
+		out.println("<td><input type=\"password\" placeholder=\""+entpassword+"\" required name=\"password\"></td>");
 		out.println("</tr>");
 		out.println("<tr>");
 		out.println("</tbody>");
 		out.println("</table>");
 		out.println("<br/>");
-		out.println("<input type=\"submit\" method=\"post\" value=\"Abschicken\"/>");
-		out.println("<input type=\"button\" value=\"Zurück\" onclick=\"history.back()\"/>");
+		out.println("<input type=\"submit\" method=\"post\" value=\""+loginbutton+"\"/>");
+		out.println("<input type=\"button\" value=\""+backbutton+"\" onclick=\"history.back()\"/>");
 		out.println("</form>");
 
 		// Language selecter
-		String className="Search";
+		String className="SignIn";
 		request.setAttribute("className", className);
 		RequestDispatcher rd2=getServletContext().getRequestDispatcher("/Footer");
 		rd2.include(request, response);
