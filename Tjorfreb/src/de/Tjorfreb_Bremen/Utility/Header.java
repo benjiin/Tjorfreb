@@ -48,17 +48,23 @@ public class Header extends HttpServlet {
 		
 		
 		// Translations
-		String gratz=textBundle.getString("gratz");
+		String 	gratz=textBundle.getString("gratz"),
+				homepage=textBundle.getString("homepage"),
+				itemlist=textBundle.getString("itemlist"),
+				shoppingcart=textBundle.getString("shoppingcart"),
+				search=textBundle.getString("search"),
+				regisration=textBundle.getString("registration"),
+				signin=textBundle.getString("signin");			
 		
 		// Start HTML Code
 		out.println("<html><body><h1>"+gratz+"</h1>");
 		out.print("<center>");
-		out.print("<a href='Header1'>Startseite</a> | ");
-		out.print("<a href='ArtikelListe'>Artikelliste</a> |");
-		out.print("<a href='ShoppingCart'>Warenkorb</a> | ");
-		out.print("<a href='Search'>Suche</a> | ");
-		out.print("<a href='Registration'>Registrieren</a> |");
-		out.print("<a href='SignIn'>Anmelden</a> |");
+		out.print("<a href='Header1'>"+homepage+"</a> | ");
+		out.print("<a href='ArtikelListe'>"+itemlist+"</a> |");
+		out.print("<a href='ShoppingCart'>"+shoppingcart+"</a> | ");
+		out.print("<a href='Search'>"+search+"</a> | ");
+		out.print("<a href='Registration'>"+regisration+"</a> |");
+		out.print("<a href='SignIn'>"+signin+"</a> |");
 		out.println("</br>");
 		out.print("</center>");
 		out.println("<img src=\"bild.png\"></br></br><tr>");
