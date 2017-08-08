@@ -2,11 +2,16 @@ package de.Tjorfreb_Bremen.Benjamin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
+import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 /**
  * @author benjaminr
  */
@@ -62,10 +67,12 @@ public class Anmelden extends HttpServlet {
 		out.println("</table>");
 		out.println("<br/>");
 		out.println("<input type=\"submit\" method=\"post\" value=\"Abschicken\"/>");
-		out.println(); 
 		out.println("</form>");
 		out.println("</body>");
 		out.println("</html>");
+		
+
+		
 	}
 
 	/**

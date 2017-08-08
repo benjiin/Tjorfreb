@@ -55,6 +55,7 @@ public class Emailverify extends HttpServlet {
 			String SQL = "SELECT * FROM `user`";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(SQL);
+
 			while (rs.next())
 			{
 				if(rs.getString(5).equals(ID) && rs.getString(10).equals(email))
@@ -73,8 +74,6 @@ public class Emailverify extends HttpServlet {
 		out.println("<title>Shop24.de</title>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println(email);
-		out.println(ID);
 		out.println("<h1>Aktiviert</h1>");	
 		out.println("Herzlichen Glückwunsch Sie sind nun registiert.");
 		out.println("<form action=\"Startseite\">");
