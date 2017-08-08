@@ -20,7 +20,6 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.naming.InitialContext;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -68,14 +67,14 @@ public class Validate extends HttpServlet {
 				chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
 				salt = new String(),
 				generatedPassword = new String(),
-				ID = "123";
+				ID = "1234";
 		
 		boolean invalidEmail = email.matches(possibleEMail),
 				bfirstname = false,
 				blastname = false,
 				bemail = false,
 				bpassword = false,
-				emailNotAvaiable = false;
+				emailNotAvaiable = true;
 		
 		Random 	r = new Random();			
 		
@@ -107,20 +106,13 @@ public class Validate extends HttpServlet {
 			ds = (DataSource) jndiCntx.lookup(resourcename);
 			conn = ds.getConnection();
 	
-			String SQL = "SELECT e_mail FROM `user`";
+			String SQL = "SELECT `e_mail` FROM `user` WHERE e_mail= '"+email+"'";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(SQL);
 			
 			while (rs.next()) 
 			{
-				if(!email.equals(rs.getString(1)))
-				{
-					emailNotAvaiable = true;
-				}	
-				else
-				{
-					break;
-				}
+				emailNotAvaiable = false;
 			}
 			
 			}
@@ -290,7 +282,7 @@ public class Validate extends HttpServlet {
 						"<h1>Registrierungslink</h1><br/>"
 						+"Ein User mit der IP:"+ip+" hat versucht über Ihre E-Mail einen Account zu erstellen. Sollte dies nicht der Fall sein ignorieren Sie diese"
 								+ " Mail. Ansonsten klicken Sie auf den unten liegenden Link<br/>"
-						+ "<a href='http://localhost:8080/Tjorfreb/Emailverify'>Bitte hier registrieren...</a>",
+						+ "<a href='http://localhost:8080/Tjorfreb/Emailverify?eMail="+email+"&ID="+ID+"'>Bitte hier registrieren...</a>",
 						"text/html");
 				Transport.send(message);
 			} 

@@ -73,4 +73,13 @@
     <servlet-name>ConnectionTest</servlet-name>
     <url-pattern>/ConnectionTest</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <display-name>Anmelden</display-name>
+    <servlet-name>Anmelden</servlet-name>
+    <servlet-class>de.Tjorfreb_Bremen.Benjamin.Anmelden</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Anmelden</servlet-name>
+    <url-pattern>/Anmelden</url-pattern>
+  </servlet-mapping>
 </web-app>

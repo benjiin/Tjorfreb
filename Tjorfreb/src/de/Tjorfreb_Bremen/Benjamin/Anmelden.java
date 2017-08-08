@@ -30,25 +30,39 @@ public class Anmelden extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 
 		out.println("<html>");
 		out.println("<head>");
+		out.println("<title>Shop24.de</title>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<title>Shop24.de</title>");
-		out.println("<h1>Willkommen Shop24.de</h1>");
-		out.println("<img src=\"bild.png\">");	
+		out.println("<h1>Anmelden</h1>");
 		out.println("</br>");
-		out.println("</br>");
-		//IP des Server eingeben unter localhsot
-		out.println("<form action=\"http://localhost:8080/Tjorfreb/Registration\" method=\"get\">");
-		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Registrieren\"> <br />");
-		out.println("</form>");
-		//IP des Server eingeben unter localhsot
-		out.println("<form action=\"http://localhost:8080/Tjorfreb/Anmelden\" method=\"get\">");
-		out.println("<input type=\"submit\" name=\"abschicken\" value=\"Anmelden\"> <br />");
+		out.println("</br>");		
+		out.println("<img src=\"bild.png\">");
+		out.println("<br/>");
+		out.println("<table style=\"text-align: left; width: 100px;\" border=\"0\">");
+		out.println("<tbody>");
+		out.println("<form action=\"Startseite\" method=\"post\">");
+		//E-Mail
+		out.println("<tr>");
+		out.println("<td>E-Mail:</td>");
+		out.println("<td><input type=\"text\" placeholder=\"Ihre E-Mail Adresse\" required name=\"eMail\"></td>");
+		out.println("</tr>");
+		//Passwort
+		out.println("<tr>");
+		out.println("<td>Passwort</td>");
+		out.println("<td><input type=\"password\" placeholder=\"Geben Sie Ihr Passwort ein\" required name=\"password\"></td>");
+		out.println("</tr>");
+		out.println("<tr>");
+		out.println("</tbody>");
+		out.println("</table>");
+		out.println("<br/>");
+		out.println("<input type=\"submit\" method=\"post\" value=\"Abschicken\"/>");
+		out.println(); 
 		out.println("</form>");
 		out.println("</body>");
 		out.println("</html>");

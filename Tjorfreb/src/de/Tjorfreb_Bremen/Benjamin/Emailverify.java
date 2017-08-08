@@ -34,7 +34,8 @@ public class Emailverify extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String someName = (String)request.getAttribute("attributeName");
+		String 	ID = request.getParameter("ID"),
+				email = request.getParameter("eMail");
 		
 		Connection conn = null;
 		Statement stmt = null;
@@ -45,7 +46,6 @@ public class Emailverify extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		String resourcename = "java:comp/env/jdbc/Tjorfreb";
-
 		try
 		{
 			InitialContext jndiCntx = new InitialContext();
@@ -57,9 +57,9 @@ public class Emailverify extends HttpServlet {
 			rs = stmt.executeQuery(SQL);
 			while (rs.next())
 			{
-				if(rs.getString(5).equals(someName))
+				if(rs.getString(5).equals(ID) && rs.getString(10).equals(email))
 				{
-					SQL = "INSERT INTO User (is_activated) VALUES ('1')";
+					SQL = "UPDATE user SET is_activated = 1 WHERE e_mail = '"+email+"' AND reg_key = '"+ID+"'";
 					stmt.executeUpdate(SQL);
 				}
 			}			
@@ -68,6 +68,20 @@ public class Emailverify extends HttpServlet {
 		{
 			e.printStackTrace();
 		}	
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<title>Shop24.de</title>");
+		out.println("</head>");
+		out.println("<body>");
+		out.println(email);
+		out.println(ID);
+		out.println("<h1>Aktiviert</h1>");	
+		out.println("Herzlichen Glückwunsch Sie sind nun registiert.");
+		out.println("<form action=\"Startseite\">");
+		out.println("<input type=\"submit\" value=\"Startseite\"/>");
+		out.println("</body>");
+		out.println("</html>");	
+
 		
 		
 	}
