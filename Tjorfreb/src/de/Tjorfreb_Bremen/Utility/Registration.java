@@ -44,8 +44,18 @@ public class Registration extends HttpServlet
 		
 		
 		// Translations
-		String srch=textBundle.getString("srch");
-		String entrSrch=textBundle.getString("entrSrch");
+		String 	name=textBundle.getString("name"),
+				entname=textBundle.getString("entname"),
+				lastname=textBundle.getString("lastname"),
+				entlastname=textBundle.getString("entlastname"),
+				email=textBundle.getString("email"),
+				entemail=textBundle.getString("entemail"),
+				password=textBundle.getString("password"),
+				entpassword=textBundle.getString("entpassword"),
+				passwordcheck=textBundle.getString("passwordcheck"),
+				entpasswordcheck=textBundle.getString("entpasswordcheck");
+
+				
 
 		/**
 		 * @author benjaminr
@@ -56,28 +66,28 @@ public class Registration extends HttpServlet
 		out.println("<form action=\"Validate\" method=\"post\">");
 		//Vorname
 		out.println("<tr>");
-		out.println("<td>Vorname:</td>");
-		out.println("<td><input type=\"text\" placeholder=\"Ihr Vorname\" required name=\"firstName\"></td>");
+		out.println("<td>"+name+":</td>");
+		out.println("<td><input type=\"text\" placeholder=\""+entname+"\" required name=\"firstName\"></td>");
 		out.println("</tr>");
 		//Nachname
 		out.println("<tr>");
-		out.println("<td>Nachname:</td>");
-		out.println("<td><input type=\"text\" placeholder=\"Ihr Nachname\" required name=\"lastName\"></td>");
+		out.println("<td>"+lastname+":</td>");
+		out.println("<td><input type=\"text\" placeholder=\""+entlastname+"\" required name=\"lastName\"></td>");
 		out.println("</tr>");
 		//E-Mail
 		out.println("<tr>");
-		out.println("<td>E-Mail:</td>");
-		out.println("<td><input type=\"text\" placeholder=\"Ihre E-Mail Adresse\" required name=\"eMail\"></td>");
+		out.println("<td>"+email+":</td>");
+		out.println("<td><input type=\"text\" placeholder=\""+entemail+"\" required name=\"eMail\"></td>");
 		out.println("</tr>");
 		//Passwort
 		out.println("<tr>");
-		out.println("<td>Passwort</td>");
-		out.println("<td><input type=\"password\" placeholder=\"Geben Sie Ihr Passwort ein\" required name=\"password\"></td>");
+		out.println("<td>"+password+"</td>");
+		out.println("<td><input type=\"password\" placeholder=\""+entpassword+"\" required name=\"password\"></td>");
 		out.println("</tr>");
 		out.println("<tr>");
 		//Passwort wiederholen
-		out.println("<td>Passwort Wiederholen</td>");
-		out.println("<td><input type=\"password\" placeholder=\"Geben Sie Ihr Passwort noch einmal ein\" required name=\"passwordCheck\"></td>");
+		out.println("<td>"+passwordcheck+"</td>");
+		out.println("<td><input type=\"password\" placeholder=\""+entpasswordcheck+"\" required name=\"passwordCheck\"></td>");
 		out.println("</tr>");
 		out.println("</tbody>");
 		out.println("</table>");
