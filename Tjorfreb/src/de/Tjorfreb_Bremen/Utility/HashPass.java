@@ -5,9 +5,11 @@ import java.security.NoSuchAlgorithmException;
 
 public class HashPass
 {
+/**
+ * @author benjaminr
+ */
 	public static String Hashpass(String password, String salt)
-	{
-		
+	{		
 		String  passwordToHash = password + salt,
 				generatedPassword = null;
 		try {
@@ -27,11 +29,9 @@ public class HashPass
 		}	
 		
 		return generatedPassword;
-	}
-	
+	}	
 	public boolean Checkpass(String hash, String salt, String password)
-	{
-		
+	{		
 		return true;
 	}
 }

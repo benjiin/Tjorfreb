@@ -26,8 +26,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
-
-
 /**
  * @author benjaminr
  */
@@ -43,14 +41,12 @@ public class Validate extends HttpServlet {
     public Validate() {
         super();
     }
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -68,7 +64,10 @@ public class Validate extends HttpServlet {
 				chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
 				salt = new String(),
 				generatedPassword = new String();
-		
+		/**
+		 * @author benjaminr
+		 * Mit UUID (Universally Unique Identifier) wird eine einzigartige ID erstellt, die dem User nach dem registrieren mitgesendet wird.
+		 */
 		UUID ID = UUID.randomUUID();
 		
 		boolean invalidEmail = email.matches(possibleEMail),
@@ -102,6 +101,10 @@ public class Validate extends HttpServlet {
 			lastname = lastname.substring(0,1).toUpperCase() + lastname.substring(1).toLowerCase();	
 			blastname = true;
 		}
+		/**
+		 * @author benjaminr
+		 * Überprüfen ob die E-Mail Adresse schon vorhanden ist
+		 */
 		try
 			{
 			InitialContext jndiCntx = new InitialContext();
@@ -121,8 +124,7 @@ public class Validate extends HttpServlet {
 			catch (Exception e)
 			{
 				e.printStackTrace();
-			}	
-
+			}
 		if(invalidEmail == true)
 		{
 			bemail = true;
@@ -131,7 +133,10 @@ public class Validate extends HttpServlet {
 		{
 			bpassword = true;
 		}
-		
+		/**
+		 * @author benjaminr
+		 * Wenn alle abfragen als falsch gewertert werden, kommt eine entsprechende Meldung an den USer zurück. Andernfalls wird die Datenbank geöffnet und der USer wird in die Datenbank gespeichert.
+		 */
 		if(bfirstname == false || blastname == false || bemail == false || bpassword == false || emailNotAvaiable == false)
 		{
 			response.setContentType("text/html");
@@ -166,6 +171,10 @@ public class Validate extends HttpServlet {
 		}
 		else 
 		{
+			/**
+			 * @author benjaminr
+			 * Die aktuelle IP Adresse wird ausgelesen und an die Bestätigungsmail geschickt 
+			 */
 			response.setContentType("text/html");			
 			String ip = request.getRemoteAddr();
 			if (ip.equalsIgnoreCase("0:0:0:0:0:0:0:1")) {
@@ -251,7 +260,6 @@ public class Validate extends HttpServlet {
 					}				
 				}
 			}
-
 			out.println("<html>");
 			out.println("<head>");
 			out.println("<title>Shop24.de</title>");
@@ -262,20 +270,19 @@ public class Validate extends HttpServlet {
 			out.println("<form action=\"Header1\">");
 			out.println("<input type=\"submit\" value=\"Startseite\"/>");
 			out.println("</body>");
-			out.println("</html>");	
-
-			
-			
+			out.println("</html>");			
+			/**
+			 * @author benjaminr
+			 * Nachdem alle Daten richtig sind wird eine Mail (mit der angegebenen Mail) verschickt. Der Absender ist in diesem Fall "admin@tjorfreb.de.
+			 */
 			Properties props = System.getProperties();
 			props.setProperty("mail.smtp.host", "localhost");
-			props.setProperty("mail.transport.protocol", "smtp");
-			
+			props.setProperty("mail.transport.protocol", "smtp");			
 			Session session = Session.getDefaultInstance(props, null);
 			MimeMessage message = new MimeMessage(session);
 			
 			try
-			{
-				
+			{				
 				message.setFrom(new InternetAddress("admin@tjorfreb.de"));
 				message.addRecipients(Message.RecipientType.TO, email);
 				message.setSubject("Registrierung als User für Shop24.de");
@@ -296,10 +303,6 @@ public class Validate extends HttpServlet {
 			{
 				e.printStackTrace();
 			}
-
 		}
-	}
-
-
-	
+	}	
 }

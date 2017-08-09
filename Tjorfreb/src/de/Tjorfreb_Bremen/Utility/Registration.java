@@ -22,16 +22,8 @@ public class Registration extends HttpServlet
 	{
 		super();
 	}
-
-//	public void init(ServletConfig config) throws ServletException
-//	{
-//
-//	}
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		
-		
 		/**
 		 * @author tristan
 		 */
@@ -41,8 +33,6 @@ public class Registration extends HttpServlet
 		rd3.include(request, response);
 		ResourceBundle textBundle = (ResourceBundle)request.getAttribute("textBundle");
 		PrintWriter out = response.getWriter();
-		
-		
 		// Translations
 		/**
 		 * @author benjaminr
@@ -99,8 +89,7 @@ public class Registration extends HttpServlet
 		out.println(); 
 		out.println("</form>");
 		
-		// Language selecter
-		
+		// Language selecter		
 		String className="Registration";
 		request.setAttribute("className", className);
 		RequestDispatcher rd2=getServletContext().getRequestDispatcher("/Footer");

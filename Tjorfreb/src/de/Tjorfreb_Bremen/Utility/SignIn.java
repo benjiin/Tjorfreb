@@ -18,8 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 //@WebServlet("/Anmelden")
 public class SignIn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -27,7 +25,6 @@ public class SignIn extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-//sds
     /**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -46,9 +43,7 @@ public class SignIn extends HttpServlet {
 				password=textBundle.getString("password"),
 				entpassword=textBundle.getString("entpassword"),
 				loginbutton=textBundle.getString("loginbutton"),
-				backbutton=textBundle.getString("backbutton");
-
-		
+				backbutton=textBundle.getString("backbutton");		
 		out.println("<table style=\"text-align: left; width: 100px;\" border=\"0\">");
 		out.println("<tbody>");
 		out.println("<form action=\"SignIn\" method=\"post\">");
@@ -69,17 +64,12 @@ public class SignIn extends HttpServlet {
 		out.println("<input type=\"submit\" method=\"post\" value=\""+loginbutton+"\"/>");
 		out.println("<input type=\"button\" value=\""+backbutton+"\" onclick=\"history.back()\"/>");
 		out.println("</form>");
-
 		// Language selecter
 		String className="SignIn";
 		request.setAttribute("className", className);
 		RequestDispatcher rd2=getServletContext().getRequestDispatcher("/Footer");
-		rd2.include(request, response);
-		
-
-		
+		rd2.include(request, response);		
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -89,10 +79,6 @@ public class SignIn extends HttpServlet {
 		
 		String 	email = request.getParameter("eMail"),
 				password = request.getParameter("password"),
-				possibleEMail = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
-
-		
-		
+				possibleEMail = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";		
 	}
-
 }
